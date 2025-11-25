@@ -6,13 +6,13 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import type { import type { Codec, Decoder, Encoder, OptionOrNullable, Option, addDecoderSizePrefix, addEncoderSizePrefix, getU16Decoder, getU16Encoder, getUtf8Decoder, getUtf8Encoder } from "@solana/codecs";
+import { Codec, Decoder, Encoder, OptionOrNullable, Option, addDecoderSizePrefix, addEncoderSizePrefix, getU16Decoder, getU16Encoder, getUtf8Decoder, getUtf8Encoder } from "@solana/codecs";
 import { combineCodec, getArrayDecoder, getArrayEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU32Decoder, getU32Encoder } from "@solana/codecs";
+import {
   getCreatorDecoder,
   getCreatorEncoder,
   type Creator,
-  type CreatorArgs,
-} from '.';
+  type CreatorArgs } from '.';
 
 export type Data = {
   name: string;

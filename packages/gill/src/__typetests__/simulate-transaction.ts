@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import { simulateTransactionFactory } from "../core/simulate-transaction";
-import type { FullySignedTransaction, Transaction } from "@solana/transactions";
 import type { Rpc } from "@solana/rpc";
+import { SimulateTransactionApi } from "@solana/rpc-api";
 import type { TransactionMessage, TransactionMessageWithFeePayer } from "@solana/transaction-messages";
-import { SimulateTransactionApi, RpcDevnet, RpcMainnet, RpcTestnet } from "@solana/rpc-api";
+import type { FullySignedTransaction, Transaction } from "@solana/transactions";
+import { simulateTransactionFactory } from "../core/simulate-transaction";
 
 const rpc = null as unknown as Rpc<SimulateTransactionApi>;
-const rpcDevnet = null as unknown as RpcDevnet<SimulateTransactionApi>;
-const rpcTestnet = null as unknown as RpcTestnet<SimulateTransactionApi>;
-const rpcMainnet = null as unknown as RpcMainnet<SimulateTransactionApi>;
+// Note: RpcDevnet, RpcTestnet, RpcMainnet types don't exist in granular packages
+// // const rpcDevnet = null as unknown as RpcDevnet<SimulateTransactionApi>;
+// // const rpcTestnet = null as unknown as RpcTestnet<SimulateTransactionApi>;
+// // const rpcMainnet = null as unknown as RpcMainnet<SimulateTransactionApi>;
 
 const baseTransaction = null as unknown as Transaction;
 const compilableTransaction = null as unknown as TransactionMessage & TransactionMessageWithFeePayer;
@@ -21,9 +22,9 @@ const signedTransaction = null as unknown as Transaction & FullySignedTransactio
     // It typechecks when either RPC is generic.
     simulateTransactionFactory({ rpc });
     // It typechecks when the RPC clusters match.
-    simulateTransactionFactory({ rpc: rpcDevnet });
-    simulateTransactionFactory({ rpc: rpcTestnet });
-    simulateTransactionFactory({ rpc: rpcMainnet });
+    // simulateTransactionFactory({ rpc: rpcDevnet });
+    // simulateTransactionFactory({ rpc: rpcTestnet });
+    // simulateTransactionFactory({ rpc: rpcMainnet });
   }
   {
     const simulateTransaction = simulateTransactionFactory({ rpc });

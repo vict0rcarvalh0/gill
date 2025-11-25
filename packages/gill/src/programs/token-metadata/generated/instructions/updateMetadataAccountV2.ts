@@ -6,14 +6,13 @@
  * @see https://github.com/codama-idl/codama
  */
 
+import { Address, getAddressDecoder, getAddressEncoder } from "@solana/addresses";
+import { Codec, combineCodec, Decoder, Encoder, getBooleanDecoder, getBooleanEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU8Decoder, getU8Encoder, Option, OptionOrNullable, transformEncoder } from "@solana/codecs";
+import { type AccountMeta, type Instruction, type InstructionWithAccounts, type InstructionWithData, type ReadonlySignerAccount, type WritableAccount } from "@solana/instructions";
+import type { TransactionSigner } from "@solana/signers";
 import { getAccountMetaFactory, ResolvedAccount } from "../../../shared";
 import { TOKEN_METADATA_PROGRAM_ADDRESS } from "../programs";
 import { getDataV2Decoder, getDataV2Encoder, type DataV2, type DataV2Args } from "../types";
-import type { Codec, Decoder, Encoder, OptionOrNullable, Option, transformEncoder } from "@solana/codecs";
-import { combineCodec, getBooleanDecoder, getBooleanEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU8Decoder, getU8Encoder } from "@solana/codecs";
-import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
-import type { Instruction, AccountMeta, AccountSignerMeta, InstructionWithAccounts, InstructionWithData, ReadonlySignerAccount, WritableAccount } from "@solana/transaction-messages";
-import type { TransactionSigner } from "@solana/signers";
 
 export const UPDATE_METADATA_ACCOUNT_V2_DISCRIMINATOR = 15;
 
@@ -32,7 +31,7 @@ export type UpdateMetadataAccountV2Instruction<
     [
       TAccountMetadata extends string ? WritableAccount<TAccountMetadata> : TAccountMetadata,
       TAccountUpdateAuthority extends string
-        ? ReadonlySignerAccount<TAccountUpdateAuthority> & AccountSignerMeta<TAccountUpdateAuthority>
+        ? ReadonlySignerAccount<TAccountUpdateAuthority>
         : TAccountUpdateAuthority,
       ...TRemainingAccounts,
     ]

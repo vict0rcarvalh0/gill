@@ -4,8 +4,9 @@ import type { Simplify } from "./../types/index";
 import type { TransactionMessage, TransactionMessageWithFeePayer } from "@solana/transaction-messages";
 import type { Rpc } from "@solana/rpc";
 import type { Transaction } from "@solana/transactions";
-import { getBase64EncodedWireTransaction, partiallySignTransactionMessageWithSigners } from "@solana/transactions";
+import { getBase64EncodedWireTransaction} from "@solana/transactions";
 import { SimulateTransactionApi } from "@solana/rpc-api";
+import { partiallySignTransactionMessageWithSigners } from "@solana/signers";
 
 export type SimulateTransactionFunction = (
   transaction: Transaction | (TransactionMessage & TransactionMessageWithFeePayer),

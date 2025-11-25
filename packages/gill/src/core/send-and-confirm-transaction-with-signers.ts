@@ -1,16 +1,16 @@
 
 
 import { type waitForRecentTransactionConfirmation } from "@solana/transaction-confirmation";
+import { signTransactionMessageWithSigners } from "@solana/signers";
 import { debug } from "./debug";
 import { getExplorerLink } from "./explorer";
-import type { BaseTransactionMessage, TransactionMessage, TransactionMessageWithFeePayer, assertIsTransactionMessageWithBlockhashLifetime } from "@solana/transaction-messages";
+import { BaseTransactionMessage, TransactionMessage, TransactionMessageWithFeePayer, assertIsTransactionMessageWithBlockhashLifetime } from "@solana/transaction-messages";
 import { setTransactionMessageLifetimeUsingBlockhash } from "@solana/transaction-messages";
-import type { FullySignedTransaction, Transaction, TransactionWithLifetime, assertIsFullySignedTransaction, assertIsSendableTransaction, assertIsTransactionWithBlockhashLifetime, assertIsTransactionWithinSizeLimit, sendAndConfirmTransactionFactory } from "@solana/transactions";
-import { getBase64EncodedWireTransaction, getSignatureFromTransaction, signTransactionMessageWithSigners } from "@solana/transactions";
+import { FullySignedTransaction, Transaction, TransactionWithLifetime, assertIsFullySignedTransaction, assertIsSendableTransaction, assertIsTransactionWithBlockhashLifetime, assertIsTransactionWithinSizeLimit} from "@solana/transactions";
+import { getBase64EncodedWireTransaction, getSignatureFromTransaction} from "@solana/transactions";
 import type { GetLatestBlockhashApi, GetSignatureStatusesApi, SendTransactionApi, GetEpochInfoApi } from "@solana/rpc-api";
 import type { Rpc } from "@solana/rpc";
 import type { RpcSubscriptions } from "@solana/rpc-subscriptions";
-import type { Signature } from "@solana/rpc-types";
 import { Commitment } from "@solana/rpc-types";
 import { SignatureNotificationsApi, SlotNotificationsApi } from "@solana/rpc-subscriptions-api";
 
@@ -41,7 +41,7 @@ export type SendAndConfirmTransactionWithSignersFunction = (
     SendAndConfirmTransactionWithBlockhashLifetimeConfig,
     "confirmRecentTransaction" | "rpc" | "transaction"
   >,
-) => Promise<Signature>;
+) => Promise<string>;
 
 type SendAndConfirmTransactionWithSignersFactoryConfig<TCluster> = {
   rpc: Rpc<GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi> & {

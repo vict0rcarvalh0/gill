@@ -1,8 +1,8 @@
 import { getCreateAccountInstruction } from "@solana-program/system";
 import type { Address } from "@solana/addresses";
-import type { Instruction } from "@solana/transaction-messages";
 import type { KeyPairSigner } from "@solana/signers";
 import { generateKeyPairSigner } from "@solana/signers";
+import { type Instruction } from "@solana/instructions";
 
 import { getMinimumBalanceForRentExemption } from "../core";
 import { getCreateTokenInstructions, GetCreateTokenInstructionsArgs, TOKEN_PROGRAM_ADDRESS } from "../programs/token";
@@ -13,8 +13,7 @@ import {
   getInitializeMintInstruction,
   getInitializeTokenMetadataInstruction,
   getMintSize,
-  TOKEN_2022_PROGRAM_ADDRESS,
-} from "@solana-program/token-2022";
+  TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
 
 const MOCK_SPACE = 122n;
 const MOCK_RENT = 10000n;

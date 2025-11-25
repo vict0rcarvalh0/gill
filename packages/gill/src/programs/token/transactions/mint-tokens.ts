@@ -7,7 +7,6 @@ import type { TransactionBuilderInput } from "./types";
 import type { Address } from "@solana/addresses";
 import type { TransactionMessageWithFeePayer, TransactionMessageWithBlockhashLifetime, TransactionVersion } from "@solana/transaction-messages";
 import type { TransactionSigner } from "@solana/signers";
-
 type GetCreateTokenTransactionInput = Simplify<
   Omit<GetMintTokensInstructionsArgs, "ata"> & Partial<Pick<GetMintTokensInstructionsArgs, "ata">>
 >;

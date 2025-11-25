@@ -6,19 +6,18 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
+import { Address, getAddressDecoder, getAddressEncoder } from "@solana/addresses";
 import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent } from "@solana/codecs";
 import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getStructDecoder, getStructEncoder, getTupleDecoder, getTupleEncoder, getU64Decoder, getU64Encoder } from "@solana/codecs";
-import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
-  getProofInfoDecoder,
-  getProofInfoEncoder,
-  getSeedsVecDecoder,
-  getSeedsVecEncoder,
-  type ProofInfo,
-  type ProofInfoArgs,
-  type SeedsVec,
-  type SeedsVecArgs,
-} from '.';
+import {
+    getProofInfoDecoder,
+    getProofInfoEncoder,
+    getSeedsVecDecoder,
+    getSeedsVecEncoder,
+    type ProofInfo,
+    type ProofInfoArgs,
+    type SeedsVec,
+    type SeedsVecArgs } from '.';
 
 export type PayloadType =
   | { __kind: 'Pubkey'; fields: readonly [Address] }

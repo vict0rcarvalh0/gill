@@ -2,7 +2,6 @@
 import { base64BytesToAddress, base64BytesToSignature, base64BytesToString } from "../core/base64-bytes-to";
 import { Address } from "@solana/addresses";
 import { getBase58Encoder, getBase64Decoder } from "@solana/codecs";
-import { Signature } from "@solana/rpc-types";
 
 const base64Decoder = getBase64Decoder();
 const base58Decoder = getBase58Encoder();
@@ -40,7 +39,7 @@ describe("base64BytesToAddress", () => {
 
 describe("base64BytesToSignature", () => {
   const singature =
-    "4SJT9r8g3ea98CsdagyDSf2pMYjUQrxd9y1DeG5fNFqaQ3gH9N7bhqYUKsn4pZCLKgmhtQek5BFGSnfs2ieS9TMp" as Signature;
+    "4SJT9r8g3ea98CsdagyDSf2pMYjUQrxd9y1DeG5fNFqaQ3gH9N7bhqYUKsn4pZCLKgmhtQek5BFGSnfs2ieS9TMp" as string;
   const base64BytesForSignature: string = base64Decoder.decode(base58Decoder.encode(singature));
 
   it("should convert valid base64 encoded signature bytes to Signature", () => {

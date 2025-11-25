@@ -1,7 +1,14 @@
 import type { TransactionMessage, TransactionMessageWithFeePayer } from "@solana/transaction-messages";
-import { pipe } from "@solana/transaction-messages";
-import type { Transaction, Base64EncodedWireTransaction, compileTransaction } from "@solana/transactions";
-import { getBase64EncodedWireTransaction, partiallySignTransactionMessageWithSigners } from "@solana/transactions";
+import { partiallySignTransactionMessageWithSigners } from "@solana/signers";
+
+import { Transaction, Base64EncodedWireTransaction, compileTransaction } from "@solana/transactions";
+import { getBase64EncodedWireTransaction} from "@solana/transactions";
+
+
+// Utility function for function composition (pipe)
+function pipe<T>(value: T, ...fns: Array<(arg: any) => any>): any {
+  return fns.reduce((acc, fn) => fn(acc), value);
+}
 
 /**
  * Compile a transaction to a base64 string

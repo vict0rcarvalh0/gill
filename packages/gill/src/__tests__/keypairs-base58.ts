@@ -1,11 +1,11 @@
 
-import {
 import { blockhash } from "@solana/rpc-types";
-import { createKeyPairFromBytes, createSignerFromKeyPair } from "@solana/signers";
-  createKeypairFromBase58,
-  createKeypairSignerFromBase58,
-  createTransaction,
-  transactionToBase64WithSigners,
+import { createKeyPairSignerFromBytes } from "@solana/signers";
+import {
+    createKeypairFromBase58,
+    createKeypairSignerFromBase58,
+    createTransaction,
+    transactionToBase64WithSigners
 } from "../core";
 
 const EXPECTED_ADDRESS = "5CxWcsm9h3NfCM8WPM6eaw8LnnSmnYyEHf8BQQ56YJGK";
@@ -22,14 +22,9 @@ const MOCK_KEY_BASE58 = "4AxFzQaPR6N9dWP5K3GdZRLuWJcdgPznM4h42ASqByP3c6vywVLKs32
 
 describe("createKeypairFromBase58", () => {
   test("creates a valid CryptoKeyPair from a base58 encoded secret key", async () => {
-    const [keypair, referenceKeypair] = await Promise.all([
-      createKeypairFromBase58(MOCK_KEY_BASE58),
-      createKeyPairFromBytes(MOCK_KEY_BYTES),
-    ]);
-
     const [signer, referenceSigner] = await Promise.all([
-      createSignerFromKeyPair(keypair),
-      createSignerFromKeyPair(referenceKeypair),
+      createKeypairFromBase58(MOCK_KEY_BASE58),
+      createKeyPairSignerFromBytes(MOCK_KEY_BYTES),
     ]);
 
     expect(signer.address.toString()).toBe(EXPECTED_ADDRESS);
@@ -48,12 +43,10 @@ describe("createKeypairFromBase58", () => {
 });
 
 describe("createKeypairSignerFromBase58", () => {
-  test("creates a valid CryptoKeyPair from a base58 encoded secret key", async () => {
-    const referenceKeypair = await createKeyPairFromBytes(MOCK_KEY_BYTES);
-
+  test("creates a valid KeyPairSigner from a base58 encoded secret key", async () => {
     const [signer, referenceSigner] = await Promise.all([
       createKeypairSignerFromBase58(MOCK_KEY_BASE58),
-      createSignerFromKeyPair(referenceKeypair),
+      createKeyPairSignerFromBytes(MOCK_KEY_BYTES),
     ]);
 
     expect(signer.address.toString()).toBe(EXPECTED_ADDRESS);

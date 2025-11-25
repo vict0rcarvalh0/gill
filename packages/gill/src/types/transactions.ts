@@ -1,12 +1,11 @@
 import type { Address } from "@solana/addresses";
+import { type Instruction } from "@solana/instructions";
 import type { TransactionSigner } from "@solana/signers";
 import type {
     BaseTransactionMessage,
-    Instruction,
     TransactionMessageWithBlockhashLifetime,
     TransactionMessageWithFeePayer,
-    TransactionMessageWithFeePayerSigner,
-    TransactionVersion,
+    TransactionVersion
 } from "@solana/transaction-messages";
 
 import type { Simplify } from ".";
@@ -42,7 +41,7 @@ export type CreateTransactionInput<
 
 export type FullTransaction<
   TVersion extends TransactionVersion,
-  TFeePayer extends TransactionMessageWithFeePayer | TransactionMessageWithFeePayerSigner,
+  TFeePayer extends TransactionMessageWithFeePayer | TransactionMessageWithFeePayer,
   TBlockhashLifetime extends TransactionMessageWithBlockhashLifetime | undefined = undefined,
 > = Simplify<
   BaseTransactionMessage<TVersion> &

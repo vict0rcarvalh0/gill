@@ -1,18 +1,23 @@
 import { getSetComputeUnitLimitInstruction, getSetComputeUnitPriceInstruction } from "@solana-program/compute-budget";
 import type { Address } from "@solana/addresses";
-import type { TransactionMessageWithBlockhashLifetime, TransactionMessageWithFeePayer, TransactionMessageWithFeePayerSigner, TransactionVersion, isTransactionSigner, setTransactionMessageFeePayerSigner } from "@solana/transaction-messages";
-import { appendTransactionMessageInstruction, appendTransactionMessageInstructions, createTransactionMessage, pipe, setTransactionMessageFeePayer, setTransactionMessageLifetimeUsingBlockhash } from "@solana/transaction-messages";
 import type { TransactionSigner } from "@solana/signers";
+import { appendTransactionMessageInstruction, appendTransactionMessageInstructions, createTransactionMessage, setTransactionMessageFeePayer, setTransactionMessageLifetimeUsingBlockhash, TransactionMessageWithBlockhashLifetime, TransactionMessageWithFeePayer, TransactionVersion } from "@solana/transaction-messages";
 
 import type { Simplify } from "../types";
 import type { CreateTransactionInput, FullTransaction } from "../types/transactions";
+
+
+// Utility function for function composition (pipe)
+function pipe<T>(value: T, ...fns: Array<(arg: any) => any>): any {
+  return fns.reduce((acc, fn) => fn(acc), value);
+}
 
 /**
  * Simple interface for creating a Solana transaction
  */
 export function createTransaction<TVersion extends TransactionVersion | "auto", TFeePayer extends TransactionSigner>(
   props: CreateTransactionInput<TVersion, TFeePayer>,
-): FullTransaction<TVersion extends "auto" ? TransactionVersion : TVersion, TransactionMessageWithFeePayerSigner>;
+): FullTransaction<TVersion extends "auto" ? TransactionVersion : TVersion, TransactionMessageWithFeePayer>;
 export function createTransaction<TVersion extends TransactionVersion | "auto", TFeePayer extends Address>(
   props: CreateTransactionInput<TVersion, TFeePayer>,
 ): FullTransaction<TVersion extends "auto" ? TransactionVersion : TVersion, TransactionMessageWithFeePayer>;
@@ -25,7 +30,7 @@ export function createTransaction<
 ): Simplify<
   FullTransaction<
     TVersion extends "auto" ? TransactionVersion : TVersion,
-    TransactionMessageWithFeePayerSigner,
+    TransactionMessageWithFeePayer,
     TransactionMessageWithBlockhashLifetime
   >
 >;
@@ -67,7 +72,7 @@ export function createTransaction<
   computeUnitPrice,
 }: CreateTransactionInput<TVersion, TFeePayer>): FullTransaction<
   TVersion extends "auto" ? TransactionVersion : TVersion,
-  TransactionMessageWithFeePayer | TransactionMessageWithFeePayerSigner
+  TransactionMessageWithFeePayer | TransactionMessageWithFeePayer
 > {
   return pipe(
     // Auto-select version: if any provided instruction appears to use an Address Lookup Table (ALT),
@@ -91,9 +96,8 @@ export function createTransaction<
     })(),
     (tx) => {
       const withLifetime = latestBlockhash ? setTransactionMessageLifetimeUsingBlockhash(latestBlockhash, tx) : tx;
-      if (typeof feePayer !== "string" && "address" in feePayer && isTransactionSigner(feePayer)) {
-        return setTransactionMessageFeePayerSigner(feePayer, withLifetime);
-      } else return setTransactionMessageFeePayer(feePayer, withLifetime);
+      // setTransactionMessageFeePayer handles both Address and TransactionSigner
+      return setTransactionMessageFeePayer(feePayer as any, withLifetime);
     },
     (tx) => {
       const withComputeLimit =
@@ -116,6 +120,6 @@ export function createTransaction<
     },
   ) as FullTransaction<
     TVersion extends "auto" ? TransactionVersion : TVersion,
-    TransactionMessageWithFeePayer | TransactionMessageWithFeePayerSigner
+    TransactionMessageWithFeePayer | TransactionMessageWithFeePayer
   >;
 }

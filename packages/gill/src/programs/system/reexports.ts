@@ -122,7 +122,6 @@ export {
   parseTransferSolInstruction,
   parseTransferSolWithSeedInstruction,
   parseUpgradeNonceAccountInstruction,
-  parseWithdrawNonceAccountInstruction,
-} from "@solana-program/system";
+  parseWithdrawNonceAccountInstruction } from "@solana-program/system";
 
 export type * from "@solana-program/system";

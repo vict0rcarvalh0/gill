@@ -53,7 +53,6 @@ export {
   parseCreateLookupTableInstruction,
   parseDeactivateLookupTableInstruction,
   parseExtendLookupTableInstruction,
-  parseFreezeLookupTableInstruction,
-} from "@solana-program/address-lookup-table";
+  parseFreezeLookupTableInstruction } from "@solana-program/address-lookup-table";
 
 export type * from "@solana-program/address-lookup-table";

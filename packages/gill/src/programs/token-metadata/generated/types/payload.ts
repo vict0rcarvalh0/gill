@@ -6,13 +6,13 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import type { import type { Codec, Decoder, Encoder, addDecoderSizePrefix, addEncoderSizePrefix, getUtf8Decoder, getUtf8Encoder, getMapDecoder, getMapEncoder } from "@solana/codecs";
+import { Codec, Decoder, Encoder, addDecoderSizePrefix, addEncoderSizePrefix, getUtf8Decoder, getUtf8Encoder, getMapDecoder, getMapEncoder } from "@solana/codecs";
 import { combineCodec, getStructDecoder, getStructEncoder, getU32Decoder, getU32Encoder } from "@solana/codecs";
+import {
   getPayloadTypeDecoder,
   getPayloadTypeEncoder,
   type PayloadType,
-  type PayloadTypeArgs,
-} from '.';
+  type PayloadTypeArgs } from '.';
 
 export type Payload = { map: Map<string, PayloadType> };
 

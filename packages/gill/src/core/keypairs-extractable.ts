@@ -1,5 +1,5 @@
 import { assertKeyExporterIsAvailable, assertKeyGenerationIsAvailable } from "@solana/assertions";
-import type { KeyPairSigner, createKeyPairFromBytes, createSignerFromKeyPair, createKeyPairSignerFromBytes } from "@solana/signers";
+import { KeyPairSigner, createKeyPairSignerFromBytes, createSignerFromKeyPair } from "@solana/signers";
 
 export function assertKeyPairIsExtractable(keyPair: CryptoKeyPair): asserts keyPair is ExtractableCryptoKeyPair {
   assertKeyExporterIsAvailable();
@@ -46,7 +46,7 @@ export async function generateExtractableKeyPairSigner(): Promise<ExtractableKey
  *
  * @remarks
  * - Requires a keypair generated with extractable=true. See {@link generateExtractableKeyPair}.
- * - The extracted bytes can be used to reconstruct the `CryptoKeyPair` with {@link createKeyPairFromBytes}.
+ * - The extracted bytes can be used to reconstruct the `CryptoKeyPair` with {@link createKeyPairSignerFromBytes}.
  *
  * @param keypair An extractable Ed25519 `CryptoKeyPair`
  * @returns Raw key bytes as `Uint8Array`

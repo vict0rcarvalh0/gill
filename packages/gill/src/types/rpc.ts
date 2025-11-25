@@ -1,13 +1,17 @@
 import type { createSolanaRpc, RpcFromTransport, RpcTransportFromClusterUrl, SolanaRpcApiFromTransport } from "@solana/rpc";
 import type { createSolanaRpcSubscriptions, RpcSubscriptions, SolanaRpcSubscriptionsApi } from "@solana/rpc-subscriptions";
-import type { DevnetUrl, MainnetUrl, TestnetUrl } from "@solana/rpc-transport-http";
+import type { DevnetUrl, MainnetUrl, TestnetUrl } from "@solana/rpc-types";
 
 import { SendAndConfirmTransactionWithSignersFunction } from "../core/send-and-confirm-transaction-with-signers";
 import type { SimulateTransactionFunction } from "../core/simulate-transaction";
 
+// Re-export URL types
+export type { DevnetUrl, MainnetUrl, TestnetUrl };
+
 /** Solana cluster moniker */
 export type SolanaClusterMoniker = "devnet" | "localnet" | "mainnet" | "testnet";
 
+// LocalnetUrl is not in @solana/rpc-types, so we define it
 export type LocalnetUrl = string & { "~cluster": "localnet" };
 
 export type GenericUrl = string & {};

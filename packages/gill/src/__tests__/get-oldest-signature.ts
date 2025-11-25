@@ -1,16 +1,16 @@
 
-import { getOldestSignatureForAddress } from "../core";
 import { Address } from "@solana/addresses";
-import { Signature } from "@solana/rpc-types";
+import { getOldestSignatureForAddress } from "../core";
+
 import { isSolanaError, SOLANA_ERROR__TRANSACTION_ERROR__UNKNOWN } from "@solana/errors";
 
 describe("getOldestSignatureForAddress", () => {
   // Sample test data
   const mockAddress = "mockAddress123" as Address;
-  const mockSignature1 = { signature: "sig1" as Signature, slot: 100, blockTime: 1000 };
-  const mockSignature2 = { signature: "sig2" as Signature, slot: 90, blockTime: 900 };
-  const mockSignature3 = { signature: "sig3" as Signature, slot: 80, blockTime: 800 };
-  const mockSignature4 = { signature: "sig4" as Signature, slot: 70, blockTime: 700 };
+  const mockSignature1 = { signature: "sig1" as string, slot: 100, blockTime: 1000 };
+  const mockSignature2 = { signature: "sig2" as string, slot: 90, blockTime: 900 };
+  const mockSignature3 = { signature: "sig3" as string, slot: 80, blockTime: 800 };
+  const mockSignature4 = { signature: "sig4" as string, slot: 70, blockTime: 700 };
 
   // Reset mocks before each test
   beforeEach(() => {
@@ -138,8 +138,8 @@ describe("getOldestSignatureForAddress", () => {
 
     const config = {
       limit: 50,
-      before: "someSig" as Signature,
-      until: "untilSig" as Signature,
+      before: "someSig" as any,
+      until: "untilSig" as any,
       abortSignal: new AbortController().signal,
     };
 

@@ -6,9 +6,10 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import type { import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
+import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
 import { combineCodec, getBooleanDecoder, getBooleanEncoder, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder } from "@solana/codecs";
-import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
+import { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
+import {
   getAuthorizationDataDecoder,
   getAuthorizationDataEncoder,
   getCollectionDetailsToggleDecoder,
@@ -36,8 +37,7 @@ import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addr
   type TokenStandard,
   type TokenStandardArgs,
   type UsesToggle,
-  type UsesToggleArgs,
-} from '.';
+  type UsesToggleArgs } from '.';
 
 export type UpdateArgs =
   | {

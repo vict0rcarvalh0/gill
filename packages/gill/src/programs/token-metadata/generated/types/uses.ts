@@ -6,14 +6,13 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
 import type { Codec, Decoder, Encoder } from "@solana/codecs";
 import { combineCodec, getStructDecoder, getStructEncoder, getU64Decoder, getU64Encoder } from "@solana/codecs";
-  getUseMethodDecoder,
-  getUseMethodEncoder,
-  type UseMethod,
-  type UseMethodArgs,
-} from '.';
+import {
+    getUseMethodDecoder,
+    getUseMethodEncoder,
+    type UseMethod,
+    type UseMethodArgs } from '.';
 
 export type Uses = { useMethod: UseMethod; remaining: bigint; total: bigint };
 

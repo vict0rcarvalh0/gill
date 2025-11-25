@@ -200,18 +200,63 @@ importers:
       '@solana-program/token-2022':
         specifier: ^0.6.1
         version: 0.6.1(@solana/kit@5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)(ws@8.18.0(bufferutil@4.0.8)(utf-8-validate@5.0.10)))(@solana/sysvars@5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2))
+      '@solana/accounts':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/addresses':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
       '@solana/assertions':
         specifier: ^5.0.0
         version: 5.0.0(typescript@5.9.2)
       '@solana/codecs':
         specifier: ^5.0.0
         version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
-      '@solana/kit':
+      '@solana/errors':
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.9.2)
+      '@solana/instructions':
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.9.2)
+      '@solana/keys':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/programs':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/rpc':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/rpc-api':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/rpc-subscriptions':
         specifier: ^5.0.0
         version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)(ws@8.18.0(bufferutil@4.0.8)(utf-8-validate@5.0.10))
+      '@solana/rpc-subscriptions-api':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/rpc-transport-http':
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.9.2)
+      '@solana/rpc-types':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/signers':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/sysvars':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
       '@solana/transaction-confirmation':
         specifier: ^5.0.0
         version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)(ws@8.18.0(bufferutil@4.0.8)(utf-8-validate@5.0.10))
+      '@solana/transaction-messages':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
+      '@solana/transactions':
+        specifier: ^5.0.0
+        version: 5.0.0(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.9.2)
       typescript:
         specifier: '>=5'
         version: 5.9.2

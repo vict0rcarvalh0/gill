@@ -2,8 +2,9 @@
 import type { SolanaClusterMoniker } from "../types";
 import { GENESIS_HASH } from "./const";
 import type { Address } from "@solana/addresses";
-import type { TransactionSigner, assertIsTransactionSigner, createNoopSigner } from "@solana/signers";
-import { isTransactionSigner } from "@solana/transaction-messages";
+import { TransactionSigner, assertIsTransactionSigner, createNoopSigner } from "@solana/signers";
+import { isTransactionSigner } from "@solana/signers";
+
 
 /**
  * Determine the Solana moniker from its genesis hash

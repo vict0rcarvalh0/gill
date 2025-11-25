@@ -1,12 +1,10 @@
 import {
+    getCreateAssociatedTokenIdempotentInstruction,
+    getMintToInstruction,
+    TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
+import type { Address } from "@solana/addresses";
 import type { KeyPairSigner } from "@solana/signers";
 import { generateKeyPairSigner } from "@solana/signers";
-import type { Address } from "@solana/addresses";
-  getCreateAssociatedTokenIdempotentInstruction,
-  getMintToInstruction,
-  TOKEN_2022_PROGRAM_ADDRESS,
-} from "@solana-program/token-2022";
-
 import { getMintTokensInstructions, GetMintTokensInstructionsArgs, TOKEN_PROGRAM_ADDRESS } from "../programs/token";
 
 // Mock the imported functions

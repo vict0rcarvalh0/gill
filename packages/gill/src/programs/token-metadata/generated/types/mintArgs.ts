@@ -6,13 +6,13 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import type { import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
+import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
 import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU64Decoder, getU64Encoder } from "@solana/codecs";
+import {
   getAuthorizationDataDecoder,
   getAuthorizationDataEncoder,
   type AuthorizationData,
-  type AuthorizationDataArgs,
-} from ".";
+  type AuthorizationDataArgs } from ".";
 
 export type MetadataMintArgs = {
   __kind: "V1";

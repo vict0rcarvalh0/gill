@@ -6,8 +6,8 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import { type ParsedAddMemoInstruction } from "../instructions";
 import type { Address } from "@solana/addresses";
+import { type ParsedAddMemoInstruction } from "../instructions";
 
 export const MEMO_PROGRAM_ADDRESS =
   "MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr" as Address<"MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr">;

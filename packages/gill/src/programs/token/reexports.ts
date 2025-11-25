@@ -827,7 +827,6 @@ export {
   tokenMetadataField,
   uiAmountToAmountForInterestBearingMintWithoutSimulation,
   uiAmountToAmountForMintWithoutSimulation,
-  uiAmountToAmountForScaledUiAmountMintWithoutSimulation,
-} from "@solana-program/token-2022";
+  uiAmountToAmountForScaledUiAmountMintWithoutSimulation } from "@solana-program/token-2022";
 
 export type * from "@solana-program/token-2022";

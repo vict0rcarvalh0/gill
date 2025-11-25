@@ -1,7 +1,7 @@
 import { appendFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { resolve } from "node:path";
-import type { KeyPairSigner, createKeyPairSignerFromBytes } from "@solana/signers";
+import { KeyPairSigner, createKeyPairSignerFromBytes } from "@solana/signers";
 
 import { extractBytesFromKeyPair } from "../core";
 import { loadKeypairSignerFromFile } from "./load-keypair";

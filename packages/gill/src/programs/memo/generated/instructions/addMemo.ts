@@ -6,20 +6,19 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
 import type { Address } from "@solana/addresses";
-import type { Instruction, AccountRole, AccountMeta, InstructionWithAccounts, InstructionWithData } from "@solana/transaction-messages";
+import {
+    combineCodec,
+    getStructDecoder,
+    getStructEncoder,
+    getUtf8Decoder,
+    getUtf8Encoder,
+    type Codec,
+    type Decoder,
+    type Encoder } from "@solana/codecs";
 import type { TransactionSigner } from "@solana/signers";
-import { getUtf8Decoder, getUtf8Encoder } from "@solana/codecs";
-  combineCodec,
-  getStructDecoder,
-  getStructEncoder,
-  getUtf8Decoder,
-  getUtf8Encoder,
-  type Codec,
-  type Decoder,
-  type Encoder,
-} from "@solana/codecs";
+
+import { AccountRole, type AccountMeta, type Instruction, type InstructionWithAccounts, type InstructionWithData } from "@solana/instructions";
 
 import { MEMO_PROGRAM_ADDRESS } from "../programs";
 

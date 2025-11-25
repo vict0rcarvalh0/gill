@@ -1,7 +1,7 @@
 
 import { checkedAddress } from "../../core/utils";
 import { TOKEN_METADATA_PROGRAM_ADDRESS } from "./generated";
-import type { Address, getProgramDerivedAddress, getAddressEncoder } from "@solana/addresses";
+import { Address, getProgramDerivedAddress, getAddressEncoder } from "@solana/addresses";
 import type { KeyPairSigner } from "@solana/signers";
 
 /**

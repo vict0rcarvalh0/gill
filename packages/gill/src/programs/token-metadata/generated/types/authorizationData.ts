@@ -6,14 +6,13 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
 import type { Codec, Decoder, Encoder } from "@solana/codecs";
 import { combineCodec, getStructDecoder, getStructEncoder } from "@solana/codecs";
-  getPayloadDecoder,
-  getPayloadEncoder,
-  type Payload,
-  type PayloadArgs,
-} from '.';
+import {
+    getPayloadDecoder,
+    getPayloadEncoder,
+    type Payload,
+    type PayloadArgs } from '.';
 
 export type AuthorizationData = { payload: Payload };
 

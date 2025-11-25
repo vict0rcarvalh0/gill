@@ -1,7 +1,6 @@
 import type { TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
 import type { Address } from "@solana/addresses";
 import type { KeyPairSigner, TransactionSigner } from "@solana/signers";
-
 import type { TOKEN_PROGRAM_ADDRESS } from "../addresses";
 
 export type TokenInstructionBase<TMint = KeyPairSigner | Address> = {

@@ -1,7 +1,7 @@
 import type { Address } from "@solana/addresses";
 import { assertIsAddress } from "@solana/addresses";
-import type { Signature } from "@solana/rpc-types";
-import { assertIsSignature } from "@solana/rpc-types";
+import { assertIsSignature } from "@solana/keys";
+
 import { getBase58Decoder, getBase64Encoder } from "@solana/codecs";
 
 /**
@@ -16,7 +16,7 @@ export function base64BytesToAddress(base64Bytes: string): Address {
 /**
  * Takes a base64 encoded string of a byte array, parses, then asserts it as an {@link Signature}
  */
-export function base64BytesToSignature(base64Bytes: string): Signature {
+export function base64BytesToSignature(base64Bytes: string): string {
   const maybeSignature = getBase58Decoder().decode(getBase64Encoder().encode(base64Bytes));
   assertIsSignature(maybeSignature);
   return maybeSignature;

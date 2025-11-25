@@ -1,15 +1,15 @@
 
+import { KeyPairSigner } from "@solana/signers";
 import { createKeypairFromBase58 } from "../core";
-import type { KeyPairSigner, createSignerFromKeyPair } from "@solana/signers";
 
 /**
- * Load a `CryptoKeyPair` from an environment variable containing a base58 encoded keypair
+ * Load a `KeyPairSigner` from an environment variable containing a base58 encoded keypair
  *
  * @param variableName - environment variable name accessible via `process.env[variableName]`
  */
 export async function loadKeypairFromEnvironmentBase58<TName extends keyof NodeJS.ProcessEnv | string>(
   variableName: TName,
-): Promise<CryptoKeyPair> {
+): Promise<KeyPairSigner> {
   if (!process.env[variableName]) {
     throw new Error(`Environment variable '${variableName}' not set`);
   }
@@ -24,5 +24,5 @@ export async function loadKeypairFromEnvironmentBase58<TName extends keyof NodeJ
 export async function loadKeypairSignerFromEnvironmentBase58<TName extends keyof NodeJS.ProcessEnv | string>(
   variableName: TName,
 ): Promise<KeyPairSigner> {
-  return createSignerFromKeyPair(await loadKeypairFromEnvironmentBase58(variableName));
+  return loadKeypairFromEnvironmentBase58(variableName);
 }

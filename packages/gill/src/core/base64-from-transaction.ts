@@ -1,7 +1,7 @@
 
 import type { transactionToBase64, transactionToBase64WithSigners } from "./base64-to-transaction";
 import { getBase64Encoder } from "@solana/codecs";
-import type { Transaction, getTransactionDecoder } from "@solana/transactions";
+import { Transaction, getTransactionDecoder } from "@solana/transactions";
 
 /**
  * Convert a base64 encoded transaction string into compiled transaction

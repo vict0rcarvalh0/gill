@@ -6,14 +6,14 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import type { import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
+import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
 import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU64Decoder, getU64Encoder } from "@solana/codecs";
-import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
+import { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
+import {
   getAuthorizationDataDecoder,
   getAuthorizationDataEncoder,
   type AuthorizationData,
-  type AuthorizationDataArgs,
-} from '.';
+  type AuthorizationDataArgs } from '.';
 
 export type DelegateArgs =
   | { __kind: 'CollectionV1'; authorizationData: Option<AuthorizationData> }

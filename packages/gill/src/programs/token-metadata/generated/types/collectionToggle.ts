@@ -6,13 +6,13 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import type { import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, getUnitDecoder, getUnitEncoder } from "@solana/codecs";
+import { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, getUnitDecoder, getUnitEncoder } from "@solana/codecs";
 import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getStructDecoder, getStructEncoder, getTupleDecoder, getTupleEncoder } from "@solana/codecs";
+import {
   getCollectionDecoder,
   getCollectionEncoder,
   type Collection,
-  type CollectionArgs,
-} from '.';
+  type CollectionArgs } from '.';
 
 export type CollectionToggle =
   | { __kind: 'None' }

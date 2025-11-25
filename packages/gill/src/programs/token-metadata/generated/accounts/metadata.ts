@@ -6,40 +6,40 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import type { import type { Account, assertAccountsExist, fetchEncodedAccounts, EncodedAccount, FetchAccountConfig, FetchAccountsConfig, MaybeAccount, MaybeEncodedAccount } from "@solana/accounts";
+import { Account, assertAccountsExist, EncodedAccount, FetchAccountConfig, FetchAccountsConfig, fetchEncodedAccounts, MaybeAccount, MaybeEncodedAccount } from "@solana/accounts";
 import { assertAccountExists, decodeAccount, fetchEncodedAccount } from "@solana/accounts";
-import type { Codec, Decoder, Encoder, OptionOrNullable, Option } from "@solana/codecs";
+import { Address, getAddressDecoder, getAddressEncoder } from "@solana/addresses";
+import type { Codec, Decoder, Encoder, Option, OptionOrNullable } from "@solana/codecs";
 import { combineCodec, getBooleanDecoder, getBooleanEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU8Decoder, getU8Encoder } from "@solana/codecs";
-import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
-  getCollectionDecoder,
-  getCollectionDetailsDecoder,
-  getCollectionDetailsEncoder,
-  getCollectionEncoder,
-  getDataDecoder,
-  getDataEncoder,
-  getKeyDecoder,
-  getKeyEncoder,
-  getProgrammableConfigDecoder,
-  getProgrammableConfigEncoder,
-  getTokenStandardDecoder,
-  getTokenStandardEncoder,
-  getUsesDecoder,
-  getUsesEncoder,
-  type Collection,
-  type CollectionArgs,
-  type CollectionDetails,
-  type CollectionDetailsArgs,
-  type Data,
-  type DataArgs,
-  type Key,
-  type KeyArgs,
-  type ProgrammableConfig,
-  type ProgrammableConfigArgs,
-  type TokenStandard,
-  type TokenStandardArgs,
-  type Uses,
-  type UsesArgs,
-} from "../types";
+import {
+    getCollectionDecoder,
+    getCollectionDetailsDecoder,
+    getCollectionDetailsEncoder,
+    getCollectionEncoder,
+    getDataDecoder,
+    getDataEncoder,
+    getKeyDecoder,
+    getKeyEncoder,
+    getProgrammableConfigDecoder,
+    getProgrammableConfigEncoder,
+    getTokenStandardDecoder,
+    getTokenStandardEncoder,
+    getUsesDecoder,
+    getUsesEncoder,
+    type Collection,
+    type CollectionArgs,
+    type CollectionDetails,
+    type CollectionDetailsArgs,
+    type Data,
+    type DataArgs,
+    type Key,
+    type KeyArgs,
+    type ProgrammableConfig,
+    type ProgrammableConfigArgs,
+    type TokenStandard,
+    type TokenStandardArgs,
+    type Uses,
+    type UsesArgs } from "../types";
 
 export type Metadata = {
   key: Key;

@@ -6,8 +6,9 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import type { import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
+import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
 import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU8Decoder, getU8Encoder } from "@solana/codecs";
+import {
   getAssetDataDecoder,
   getAssetDataEncoder,
   getPrintSupplyDecoder,
@@ -15,8 +16,7 @@ import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncode
   type AssetData,
   type AssetDataArgs,
   type PrintSupply,
-  type PrintSupplyArgs,
-} from '.';
+  type PrintSupplyArgs } from '.';
 
 export type CreateArgs = {
   __kind: 'V1';

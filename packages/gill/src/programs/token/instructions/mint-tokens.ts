@@ -5,8 +5,8 @@ import { checkedAddress, checkedTransactionSigner } from "../../../core";
 import { checkedTokenProgramAddress } from "../addresses";
 import type { TokenInstructionBase } from "./types";
 import type { Address } from "@solana/addresses";
-import type { Instruction } from "@solana/transaction-messages";
 import type { TransactionSigner } from "@solana/signers";
+import { type Instruction } from "@solana/instructions";
 
 export type GetMintTokensInstructionsArgs = TokenInstructionBase & {
   /**

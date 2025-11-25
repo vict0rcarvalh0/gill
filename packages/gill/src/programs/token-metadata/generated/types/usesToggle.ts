@@ -7,7 +7,7 @@
  */
 
 import { getUsesDecoder, getUsesEncoder, type Uses, type UsesArgs } from '.';
-import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, getUnitDecoder, getUnitEncoder } from "@solana/codecs";
+import { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, getUnitDecoder, getUnitEncoder } from "@solana/codecs";
 import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getStructDecoder, getStructEncoder, getTupleDecoder, getTupleEncoder } from "@solana/codecs";
 
 export type UsesToggle =

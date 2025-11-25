@@ -45,7 +45,6 @@ export {
   parseSetLoadedAccountsDataSizeLimitInstruction,
   setTransactionMessageComputeUnitPrice,
   updateOrAppendSetComputeUnitLimitInstruction,
-  updateOrAppendSetComputeUnitPriceInstruction,
-} from "@solana-program/compute-budget";
+  updateOrAppendSetComputeUnitPriceInstruction } from "@solana-program/compute-budget";
 
 export type * from "@solana-program/compute-budget";

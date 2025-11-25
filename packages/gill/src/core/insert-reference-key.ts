@@ -2,8 +2,9 @@
 
 import type { getOldestSignatureForAddress } from "./get-oldest-signature";
 import type { Address } from "@solana/addresses";
-import type { BaseTransactionMessage, AccountRole } from "@solana/transaction-messages";
+import { BaseTransactionMessage} from "@solana/transaction-messages";
 import { SolanaError, SOLANA_ERROR__INSTRUCTION_ERROR__GENERIC_ERROR } from "@solana/errors";
+import { AccountRole } from "@solana/instructions";
 
 /**
  * Insert a single of reference key {@link Address} into a transaction message

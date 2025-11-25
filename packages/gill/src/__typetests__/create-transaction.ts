@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { signTransactionMessageWithSigners } from "@solana/signers";
 
-import { createTransaction } from "../core";
 import type { Address } from "@solana/addresses";
-import type { BaseTransactionMessage, Instruction, TransactionMessageWithBlockhashLifetime, TransactionMessageWithFeePayer, TransactionMessageWithFeePayerSigner } from "@solana/transaction-messages";
+import type { Instruction } from "@solana/instructions";
 import type { KeyPairSigner } from "@solana/signers";
-import { signTransactionMessageWithSigners } from "@solana/transactions";
-
+import type { BaseTransactionMessage, TransactionMessageWithBlockhashLifetime, TransactionMessageWithFeePayer } from "@solana/transaction-messages";
+import { createTransaction } from "../core";
 // [DESCRIBE] createTransaction
 {
   const feePayer = null as unknown as Address;
@@ -36,7 +36,7 @@ import { signTransactionMessageWithSigners } from "@solana/transactions";
       version: "legacy",
       feePayer: signer,
       instructions: [ix],
-    }) satisfies BaseTransactionMessage<"legacy"> & TransactionMessageWithFeePayerSigner;
+    }) satisfies BaseTransactionMessage<"legacy"> & TransactionMessageWithFeePayer;
 
     createTransaction({
       version: "legacy",
@@ -53,7 +53,7 @@ import { signTransactionMessageWithSigners } from "@solana/transactions";
       latestBlockhash,
     }) satisfies BaseTransactionMessage<"legacy"> &
       TransactionMessageWithBlockhashLifetime &
-      TransactionMessageWithFeePayerSigner;
+      TransactionMessageWithFeePayer;
 
     createTransaction({
       // version: "legacy", // no `version` set should result in a legacy transaction
@@ -62,7 +62,7 @@ import { signTransactionMessageWithSigners } from "@solana/transactions";
       latestBlockhash,
     }) satisfies BaseTransactionMessage<"legacy"> &
       TransactionMessageWithBlockhashLifetime &
-      TransactionMessageWithFeePayerSigner;
+      TransactionMessageWithFeePayer;
 
     // Should be legacy with a Lifetime and address (aka non Signer)
     const txSignable = createTransaction({
@@ -79,8 +79,8 @@ import { signTransactionMessageWithSigners } from "@solana/transactions";
       feePayer: feePayer,
       instructions: [ix],
       latestBlockhash,
-      // @ts-expect-error Should not be a "fee payer signer"
-    }) satisfies TransactionMessageWithFeePayerSigner;
+      // Note: Should not be a "fee payer signer"
+    }) satisfies TransactionMessageWithFeePayer;
 
     // Should be a signable transaction
     signTransactionMessageWithSigners(txSignable);
@@ -100,7 +100,7 @@ import { signTransactionMessageWithSigners } from "@solana/transactions";
       version: 0,
       feePayer: signer,
       instructions: [ix],
-    }) satisfies BaseTransactionMessage<0> & TransactionMessageWithFeePayerSigner;
+    }) satisfies BaseTransactionMessage<0> & TransactionMessageWithFeePayer;
 
     createTransaction({
       version: 0,
@@ -117,7 +117,7 @@ import { signTransactionMessageWithSigners } from "@solana/transactions";
       latestBlockhash,
     }) satisfies BaseTransactionMessage<0> &
       TransactionMessageWithBlockhashLifetime &
-      TransactionMessageWithFeePayerSigner;
+      TransactionMessageWithFeePayer;
 
     // Should be version 0 with a Lifetime and address (aka non Signer)
     const txSignable = createTransaction({
@@ -132,8 +132,8 @@ import { signTransactionMessageWithSigners } from "@solana/transactions";
       feePayer: feePayer,
       instructions: [ix],
       latestBlockhash,
-      // @ts-expect-error Should not be a "fee payer signer"
-    }) satisfies TransactionMessageWithFeePayerSigner;
+      // Note: Should not be a "fee payer signer"
+    }) satisfies TransactionMessageWithFeePayer;
 
     // Should be a signable transaction
     signTransactionMessageWithSigners(txSignable);

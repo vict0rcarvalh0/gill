@@ -6,40 +6,39 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
 import type { Address } from "@solana/addresses";
-import type { Instruction, AccountMeta, AccountSignerMeta, InstructionWithAccounts, InstructionWithData, ReadonlyAccount, ReadonlySignerAccount, WritableAccount, WritableSignerAccount } from "@solana/transaction-messages";
-import type { TransactionSigner } from "@solana/signers";
-import { Option, transformEncoder } from "@solana/codecs";
-  combineCodec,
-  getBooleanDecoder,
-  getBooleanEncoder,
-  getOptionDecoder,
-  getOptionEncoder,
-  getStructDecoder,
-  getStructEncoder,
-  getU8Decoder,
-  getU8Encoder,
-  transformEncoder,
-  type Codec,
-  type Decoder,
-  type Encoder,
-  type Option,
-  type OptionOrNullable,
-  type ReadonlyUint8Array,
+import {
+    combineCodec,
+    getBooleanDecoder,
+    getBooleanEncoder,
+    getOptionDecoder,
+    getOptionEncoder,
+    getStructDecoder,
+    getStructEncoder,
+    getU8Decoder,
+    getU8Encoder,
+    transformEncoder,
+    type Codec,
+    type Decoder,
+    type Encoder,
+    type Option,
+    type OptionOrNullable,
+    type ReadonlyUint8Array
 } from "@solana/codecs";
+import { type AccountMeta, type Instruction, type InstructionWithAccounts, type InstructionWithData, type ReadonlyAccount, type ReadonlySignerAccount, type WritableAccount, type WritableSignerAccount } from "@solana/instructions";
+import type { TransactionSigner } from "@solana/signers";
 
 import { getAccountMetaFactory, type ResolvedAccount } from "../../../shared";
 import { TOKEN_METADATA_PROGRAM_ADDRESS } from "../programs";
 import {
-  getCollectionDetailsDecoder,
-  getCollectionDetailsEncoder,
-  getDataV2Decoder,
-  getDataV2Encoder,
-  type CollectionDetails,
-  type CollectionDetailsArgs,
-  type DataV2,
-  type DataV2Args,
+    getCollectionDetailsDecoder,
+    getCollectionDetailsEncoder,
+    getDataV2Decoder,
+    getDataV2Encoder,
+    type CollectionDetails,
+    type CollectionDetailsArgs,
+    type DataV2,
+    type DataV2Args
 } from "../types";
 
 export const CREATE_METADATA_ACCOUNT_V3_DISCRIMINATOR = 33;
@@ -65,10 +64,10 @@ export type CreateMetadataAccountV3Instruction<
       TAccountMetadata extends string ? WritableAccount<TAccountMetadata> : TAccountMetadata,
       TAccountMint extends string ? ReadonlyAccount<TAccountMint> : TAccountMint,
       TAccountMintAuthority extends string
-        ? ReadonlySignerAccount<TAccountMintAuthority> & AccountSignerMeta<TAccountMintAuthority>
+        ? ReadonlySignerAccount<TAccountMintAuthority>
         : TAccountMintAuthority,
       TAccountPayer extends string
-        ? WritableSignerAccount<TAccountPayer> & AccountSignerMeta<TAccountPayer>
+        ? WritableSignerAccount<TAccountPayer>
         : TAccountPayer,
       TAccountUpdateAuthority extends string ? ReadonlyAccount<TAccountUpdateAuthority> : TAccountUpdateAuthority,
       TAccountSystemProgram extends string ? ReadonlyAccount<TAccountSystemProgram> : TAccountSystemProgram,
@@ -181,7 +180,7 @@ export function getCreateMetadataAccountV3Instruction<
   TAccountMintAuthority,
   TAccountPayer,
   (typeof input)["updateAuthority"] extends TransactionSigner<TAccountUpdateAuthority>
-    ? ReadonlySignerAccount<TAccountUpdateAuthority> & AccountSignerMeta<TAccountUpdateAuthority>
+    ? ReadonlySignerAccount<TAccountUpdateAuthority>
     : TAccountUpdateAuthority,
   TAccountSystemProgram,
   TAccountRent
@@ -232,7 +231,7 @@ export function getCreateMetadataAccountV3Instruction<
     TAccountMintAuthority,
     TAccountPayer,
     (typeof input)["updateAuthority"] extends TransactionSigner<TAccountUpdateAuthority>
-      ? ReadonlySignerAccount<TAccountUpdateAuthority> & AccountSignerMeta<TAccountUpdateAuthority>
+      ? ReadonlySignerAccount<TAccountUpdateAuthority>
       : TAccountUpdateAuthority,
     TAccountSystemProgram,
     TAccountRent

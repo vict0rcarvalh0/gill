@@ -7,7 +7,6 @@ import type { TransactionBuilderInput } from "./types";
 import type { Address } from "@solana/addresses";
 import type { TransactionMessageWithFeePayer, TransactionMessageWithBlockhashLifetime, TransactionVersion } from "@solana/transaction-messages";
 import type { TransactionSigner } from "@solana/signers";
-
 type GetTransferTokensTransactionInput = Simplify<
   Omit<GetTransferTokensInstructionsArgs, "sourceAta" | "destinationAta"> &
     Partial<Pick<GetTransferTokensInstructionsArgs, "sourceAta" | "destinationAta">>

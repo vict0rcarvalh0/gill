@@ -1,8 +1,9 @@
 
 import { insertReferenceKeysToTransactionMessage, insertReferenceKeyToTransactionMessage } from "../core";
 import { Address } from "@solana/addresses";
-import { BaseTransactionMessage, AccountRole } from "@solana/transaction-messages";
+import { BaseTransactionMessage} from "@solana/transaction-messages";
 import { SolanaError } from "@solana/errors";
+import { AccountRole } from "@solana/instructions";
 
 // Mock for BaseTransactionMessage
 const createMockTransaction = (instructions: any[]): BaseTransactionMessage => {

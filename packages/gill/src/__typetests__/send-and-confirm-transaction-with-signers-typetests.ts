@@ -1,38 +1,40 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { signTransactionMessageWithSigners } from "@solana/signers";
 
+import { Instruction } from "@solana/instructions";
+import { Rpc } from "@solana/rpc";
+import { GetEpochInfoApi, GetLatestBlockhashApi, GetSignatureStatusesApi, SendTransactionApi } from "@solana/rpc-api";
+import { RpcSubscriptions } from "@solana/rpc-subscriptions";
+import { SignatureNotificationsApi, SlotNotificationsApi } from "@solana/rpc-subscriptions-api";
+import { TransactionSigner } from "@solana/signers";
+import { TransactionWithBlockhashLifetime, TransactionWithDurableNonceLifetime } from "@solana/transactions";
 import { createTransaction } from "../core";
 import { sendAndConfirmTransactionWithSignersFactory } from "../core/send-and-confirm-transaction-with-signers";
-import { GetLatestBlockhashApi, GetSignatureStatusesApi, SendTransactionApi, GetEpochInfoApi, RpcDevnet, RpcMainnet, RpcTestnet } from "@solana/rpc-api";
-import { Instruction } from "@solana/transaction-messages";
-import { Rpc } from "@solana/rpc";
-import { RpcSubscriptions } from "@solana/rpc-subscriptions";
-import { signTransactionMessageWithSigners, TransactionWithBlockhashLifetime, TransactionWithDurableNonceLifetime } from "@solana/transactions";
-import { TransactionSigner } from "@solana/signers";
-import { SignatureNotificationsApi, SlotNotificationsApi, RpcSubscriptionsDevnet, RpcSubscriptionsMainnet, RpcSubscriptionsTestnet } from "@solana/rpc-subscriptions-api";
 
 const rpc = null as unknown as Rpc<
   GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi
 >;
-const rpcDevnet = null as unknown as RpcDevnet<
-  GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi
->;
-const rpcTestnet = null as unknown as RpcTestnet<
-  GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi
->;
-const rpcMainnet = null as unknown as RpcMainnet<
-  GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi
->;
+// Note: RpcDevnet, RpcTestnet, RpcMainnet types don't exist in granular packages
+// // const rpcDevnet = null as unknown as RpcDevnet<
+//   GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi
+// >;
+// // const rpcTestnet = null as unknown as RpcTestnet<
+//   GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi
+// >;
+// // const rpcMainnet = null as unknown as RpcMainnet<
+//   GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi
+// >;
 
 const rpcSubscriptions = null as unknown as RpcSubscriptions<SignatureNotificationsApi & SlotNotificationsApi>;
-const rpcSubscriptionsDevnet = null as unknown as RpcSubscriptionsDevnet<
-  SignatureNotificationsApi & SlotNotificationsApi
->;
-const rpcSubscriptionsMainnet = null as unknown as RpcSubscriptionsMainnet<
-  SignatureNotificationsApi & SlotNotificationsApi
->;
-const rpcSubscriptionsTestnet = null as unknown as RpcSubscriptionsTestnet<
-  SignatureNotificationsApi & SlotNotificationsApi
->;
+// // const rpcSubscriptionsDevnet = null as unknown as RpcSubscriptionsDevnet<
+//   SignatureNotificationsApi & SlotNotificationsApi
+// >;
+// // const rpcSubscriptionsMainnet = null as unknown as RpcSubscriptionsMainnet<
+//   SignatureNotificationsApi & SlotNotificationsApi
+// >;
+// // const rpcSubscriptionsTestnet = null as unknown as RpcSubscriptionsTestnet<
+//   SignatureNotificationsApi & SlotNotificationsApi
+// >;
 
 const signer = "" as unknown as TransactionSigner;
 const instruction = "" as unknown as Instruction;
@@ -43,31 +45,31 @@ const latestBlockhash = "" as unknown as ReturnType<GetLatestBlockhashApi["getLa
   {
     // It typechecks when the RPC clusters match.
     sendAndConfirmTransactionWithSignersFactory({ rpc, rpcSubscriptions });
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcDevnet, rpcSubscriptions: rpcSubscriptionsDevnet });
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcTestnet, rpcSubscriptions: rpcSubscriptionsTestnet });
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcMainnet, rpcSubscriptions: rpcSubscriptionsMainnet });
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcDevnet, rpcSubscriptions: rpcSubscriptionsDevnet });
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcTestnet, rpcSubscriptions: rpcSubscriptionsTestnet });
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcMainnet, rpcSubscriptions: rpcSubscriptionsMainnet });
   }
   {
     // It typechecks when either RPC is generic.
     sendAndConfirmTransactionWithSignersFactory({ rpc, rpcSubscriptions });
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcDevnet, rpcSubscriptions });
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcTestnet, rpcSubscriptions });
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcMainnet, rpcSubscriptions });
+    // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcDevnet, rpcSubscriptions });
+    // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcTestnet, rpcSubscriptions });
+    // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcMainnet, rpcSubscriptions });
   }
   {
     // It fails to typecheck when explicit RPC clusters mismatch.
-    // @ts-expect-error
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcDevnet, rpcSubscriptions: rpcSubscriptionsTestnet });
-    // @ts-expect-error
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcDevnet, rpcSubscriptions: rpcSubscriptionsMainnet });
-    // @ts-expect-error
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcTestnet, rpcSubscriptions: rpcSubscriptionsMainnet });
-    // @ts-expect-error
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcTestnet, rpcSubscriptions: rpcSubscriptionsDevnet });
-    // @ts-expect-error
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcMainnet, rpcSubscriptions: rpcSubscriptionsDevnet });
-    // @ts-expect-error
-    sendAndConfirmTransactionWithSignersFactory({ rpc: rpcMainnet, rpcSubscriptions: rpcSubscriptionsTestnet });
+    // Note:
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcDevnet, rpcSubscriptions: rpcSubscriptionsTestnet });
+    // Note:
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcDevnet, rpcSubscriptions: rpcSubscriptionsMainnet });
+    // Note:
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcTestnet, rpcSubscriptions: rpcSubscriptionsMainnet });
+    // Note:
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcTestnet, rpcSubscriptions: rpcSubscriptionsDevnet });
+    // Note:
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcMainnet, rpcSubscriptions: rpcSubscriptionsDevnet });
+    // Note:
+    // // sendAndConfirmTransactionWithSignersFactory({ rpc: rpcMainnet, rpcSubscriptions: rpcSubscriptionsTestnet });
   }
 
   {

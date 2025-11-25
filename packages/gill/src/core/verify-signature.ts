@@ -1,8 +1,8 @@
+import { Address, getPublicKeyFromAddress } from "@solana/addresses";
 import type { ReadonlyUint8Array } from "@solana/codecs";
 import { getBase58Encoder } from "@solana/codecs";
-import type { Address, getPublicKeyFromAddress } from "@solana/addresses";
-import type { Signature, SignatureBytes } from "@solana/rpc-types";
-import { verifySignature } from "@solana/signers";
+import { assertIsSignatureBytes, verifySignature } from "@solana/keys";
+
 
 /**
  * Verifies a Solana Address had signed the given message.
@@ -24,16 +24,23 @@ import { verifySignature } from "@solana/signers";
  */
 export async function verifySignatureForAddress(
   address: Address,
-  signature: string | Signature | SignatureBytes | Uint8Array | ReadonlyUint8Array,
+  signature: string | Uint8Array | ReadonlyUint8Array,
   message: string | Uint8Array,
 ): Promise<boolean> {
   const publicKey = await getPublicKeyFromAddress(address);
   if (typeof message === "string") {
     message = new TextEncoder().encode(message);
   }
-  // massage the signature into the branded type for `SignatureBytes`
+  // Convert signature to Uint8Array if it's a string
+  let signatureBytes: Uint8Array;
   if (typeof signature === "string") {
-    signature = getBase58Encoder().encode(signature);
+    const encoded = getBase58Encoder().encode(signature);
+    signatureBytes = new Uint8Array(encoded);
+  } else {
+    // Convert ReadonlyUint8Array to Uint8Array
+    signatureBytes = signature instanceof Uint8Array ? signature : new Uint8Array(signature);
   }
-  return verifySignature(publicKey, signature as SignatureBytes, message);
+  // Assert it's a valid signature (64 bytes)
+  assertIsSignatureBytes(signatureBytes);
+  return verifySignature(publicKey, signatureBytes, message);
 }

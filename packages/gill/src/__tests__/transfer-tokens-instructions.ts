@@ -1,17 +1,14 @@
 import {
+    getCreateAssociatedTokenIdempotentInstruction,
+    getTransferInstruction,
+    TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
+import type { Address } from "@solana/addresses";
 import type { KeyPairSigner } from "@solana/signers";
 import { generateKeyPairSigner } from "@solana/signers";
-import type { Address } from "@solana/addresses";
-  getCreateAssociatedTokenIdempotentInstruction,
-  getTransferInstruction,
-  TOKEN_2022_PROGRAM_ADDRESS,
-} from "@solana-program/token-2022";
-
 import {
-  getTransferTokensInstructions,
-  GetTransferTokensInstructionsArgs,
-  TOKEN_PROGRAM_ADDRESS,
-} from "../programs/token";
+    getTransferTokensInstructions,
+    GetTransferTokensInstructionsArgs,
+    TOKEN_PROGRAM_ADDRESS } from "../programs/token";
 
 // Mock the imported functions
 jest.mock("@solana-program/token-2022", () => ({

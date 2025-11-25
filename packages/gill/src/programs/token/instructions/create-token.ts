@@ -1,7 +1,7 @@
 import { getCreateAccountInstruction } from "@solana-program/system";
 import type { Address } from "@solana/addresses";
-import type { Instruction } from "@solana/transaction-messages";
 import type { KeyPairSigner, TransactionSigner } from "@solana/signers";
+import { type Instruction } from "@solana/instructions";
 
 import { checkedAddress, checkedTransactionSigner, getMinimumBalanceForRentExemption } from "../../../core";
 import { getCreateMetadataAccountV3Instruction, getTokenMetadataAddress } from "../../token-metadata";
@@ -12,8 +12,7 @@ import {
   getInitializeMintInstruction,
   getInitializeTokenMetadataInstruction,
   getMintSize,
-  TOKEN_2022_PROGRAM_ADDRESS,
-} from "@solana-program/token-2022";
+  TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
 import { checkedTokenProgramAddress } from "../addresses";
 import type { TokenInstructionBase } from "./types";
 

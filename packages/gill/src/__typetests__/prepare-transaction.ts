@@ -3,7 +3,8 @@
 import { prepareTransaction } from "../core";
 import type { BaseTransactionMessage, TransactionMessageWithFeePayer, TransactionMessageWithBlockhashLifetime } from "@solana/transaction-messages";
 import type { Rpc } from "@solana/rpc";
-import { signTransactionMessageWithSigners } from "@solana/transactions";
+import { signTransactionMessageWithSigners } from "@solana/signers";
+
 import { SolanaRpcApi } from "@solana/rpc-api";
 
 // [DESCRIBE] prepareTransaction

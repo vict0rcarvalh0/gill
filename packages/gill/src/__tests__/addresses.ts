@@ -1,12 +1,11 @@
 
 import { TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
-import {
 import { Address } from "@solana/addresses";
-  assertIsSupportedTokenProgram,
-  checkedTokenProgramAddress,
-  parseTokenProgramAddressOrMoniker,
-  TOKEN_PROGRAM_ADDRESS,
-} from "../programs/token";
+import {
+    assertIsSupportedTokenProgram,
+    checkedTokenProgramAddress,
+    parseTokenProgramAddressOrMoniker,
+    TOKEN_PROGRAM_ADDRESS } from "../programs/token";
 
 describe("parseTokenProgramAddressOrMoniker", () => {
   it("should return TOKEN_PROGRAM_ADDRESS for 'legacy' moniker", () => {

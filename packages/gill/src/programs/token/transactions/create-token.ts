@@ -1,7 +1,6 @@
 import { TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
 import type { TransactionMessageWithFeePayer, TransactionMessageWithBlockhashLifetime, TransactionVersion } from "@solana/transaction-messages";
 import type { KeyPairSigner, TransactionSigner } from "@solana/signers";
-
 import { checkedTransactionSigner, createTransaction } from "../../../core";
 import type { FullTransaction, Simplify } from "../../../types";
 import { getTokenMetadataAddress } from "../../token-metadata";
