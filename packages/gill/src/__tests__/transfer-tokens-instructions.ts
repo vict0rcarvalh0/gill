@@ -1,9 +1,12 @@
 import {
+import type { KeyPairSigner } from "@solana/signers";
+import { generateKeyPairSigner } from "@solana/signers";
+import type { Address } from "@solana/addresses";
   getCreateAssociatedTokenIdempotentInstruction,
   getTransferInstruction,
   TOKEN_2022_PROGRAM_ADDRESS,
 } from "@solana-program/token-2022";
-import { generateKeyPairSigner, type Address, type KeyPairSigner } from "@solana/kit";
+
 import {
   getTransferTokensInstructions,
   GetTransferTokensInstructionsArgs,

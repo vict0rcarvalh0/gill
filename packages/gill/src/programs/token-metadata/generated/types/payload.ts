@@ -6,23 +6,8 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
-  addDecoderSizePrefix,
-  addEncoderSizePrefix,
-  combineCodec,
-  getMapDecoder,
-  getMapEncoder,
-  getStructDecoder,
-  getStructEncoder,
-  getU32Decoder,
-  getU32Encoder,
-  getUtf8Decoder,
-  getUtf8Encoder,
-  type Codec,
-  type Decoder,
-  type Encoder,
-} from '@solana/kit';
-import {
+import type { import type { Codec, Decoder, Encoder, addDecoderSizePrefix, addEncoderSizePrefix, getUtf8Decoder, getUtf8Encoder, getMapDecoder, getMapEncoder } from "@solana/codecs";
+import { combineCodec, getStructDecoder, getStructEncoder, getU32Decoder, getU32Encoder } from "@solana/codecs";
   getPayloadTypeDecoder,
   getPayloadTypeEncoder,
   type PayloadType,

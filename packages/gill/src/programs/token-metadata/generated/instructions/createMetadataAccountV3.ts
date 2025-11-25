@@ -7,6 +7,10 @@
  */
 
 import {
+import type { Address } from "@solana/addresses";
+import type { Instruction, AccountMeta, AccountSignerMeta, InstructionWithAccounts, InstructionWithData, ReadonlyAccount, ReadonlySignerAccount, WritableAccount, WritableSignerAccount } from "@solana/transaction-messages";
+import type { TransactionSigner } from "@solana/signers";
+import { Option, transformEncoder } from "@solana/codecs";
   combineCodec,
   getBooleanDecoder,
   getBooleanEncoder,
@@ -24,19 +28,6 @@ import {
   type OptionOrNullable,
   type ReadonlyUint8Array,
 } from "@solana/codecs";
-import type {
-  Address,
-  AccountMeta,
-  AccountSignerMeta,
-  Instruction,
-  InstructionWithAccounts,
-  InstructionWithData,
-  ReadonlyAccount,
-  ReadonlySignerAccount,
-  TransactionSigner,
-  WritableAccount,
-  WritableSignerAccount,
-} from "@solana/kit";
 
 import { getAccountMetaFactory, type ResolvedAccount } from "../../../shared";
 import { TOKEN_METADATA_PROGRAM_ADDRESS } from "../programs";

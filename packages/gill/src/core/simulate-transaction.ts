@@ -1,12 +1,11 @@
-import type {
-  TransactionMessage,
-  TransactionMessageWithFeePayer,
-  Rpc,
-  SimulateTransactionApi,
-  Transaction,
-} from "@solana/kit";
-import { getBase64EncodedWireTransaction, partiallySignTransactionMessageWithSigners } from "@solana/kit";
+
+
 import type { Simplify } from "./../types/index";
+import type { TransactionMessage, TransactionMessageWithFeePayer } from "@solana/transaction-messages";
+import type { Rpc } from "@solana/rpc";
+import type { Transaction } from "@solana/transactions";
+import { getBase64EncodedWireTransaction, partiallySignTransactionMessageWithSigners } from "@solana/transactions";
+import { SimulateTransactionApi } from "@solana/rpc-api";
 
 export type SimulateTransactionFunction = (
   transaction: Transaction | (TransactionMessage & TransactionMessageWithFeePayer),

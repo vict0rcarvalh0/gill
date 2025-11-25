@@ -1,5 +1,8 @@
 import { findAssociatedTokenPda, TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
-import { isAddress, type Address, type TransactionSigner } from "@solana/kit";
+import type { Address } from "@solana/addresses";
+import { isAddress } from "@solana/addresses";
+import type { TransactionSigner } from "@solana/signers";
+
 import { checkedAddress } from "../../core/utils";
 
 export type LegacyTokenProgramMonikers = "legacy" | "token";

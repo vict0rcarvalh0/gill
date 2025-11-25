@@ -6,37 +6,14 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
-  combineCodec,
-  getAddressDecoder,
-  getAddressEncoder,
-  getBooleanDecoder,
-  getBooleanEncoder,
-  getOptionDecoder,
-  getOptionEncoder,
-  getStructDecoder,
-  getStructEncoder,
-  getU8Decoder,
-  getU8Encoder,
-  transformEncoder,
-  type Address,
-  type Codec,
-  type Decoder,
-  type Encoder,
-  type AccountMeta,
-  type AccountSignerMeta,
-  type Instruction,
-  type InstructionWithAccounts,
-  type InstructionWithData,
-  type Option,
-  type OptionOrNullable,
-  type ReadonlySignerAccount,
-  type TransactionSigner,
-  type WritableAccount,
-} from "@solana/kit";
 import { getAccountMetaFactory, ResolvedAccount } from "../../../shared";
 import { TOKEN_METADATA_PROGRAM_ADDRESS } from "../programs";
 import { getDataV2Decoder, getDataV2Encoder, type DataV2, type DataV2Args } from "../types";
+import type { Codec, Decoder, Encoder, OptionOrNullable, Option, transformEncoder } from "@solana/codecs";
+import { combineCodec, getBooleanDecoder, getBooleanEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU8Decoder, getU8Encoder } from "@solana/codecs";
+import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
+import type { Instruction, AccountMeta, AccountSignerMeta, InstructionWithAccounts, InstructionWithData, ReadonlySignerAccount, WritableAccount } from "@solana/transaction-messages";
+import type { TransactionSigner } from "@solana/signers";
 
 export const UPDATE_METADATA_ACCOUNT_V2_DISCRIMINATOR = 15;
 

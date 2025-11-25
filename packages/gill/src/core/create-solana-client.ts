@@ -1,5 +1,6 @@
-import type { DevnetUrl, MainnetUrl, TestnetUrl } from "@solana/kit";
-import { createSolanaRpc, createSolanaRpcSubscriptions } from "@solana/kit";
+import { createSolanaRpc } from "@solana/rpc";
+import { createSolanaRpcSubscriptions } from "@solana/rpc-subscriptions";
+import type { DevnetUrl, MainnetUrl, TestnetUrl } from "@solana/rpc-transport-http";
 
 import type { CreateSolanaClientArgs, LocalnetUrl, ModifiedClusterUrl, SolanaClient } from "../types/rpc";
 import { getPublicSolanaRpcUrl } from "./rpc";

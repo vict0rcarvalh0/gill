@@ -1,16 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type {
-  Address,
-  BaseTransactionMessage,
-  Instruction,
-  KeyPairSigner,
-  TransactionMessageWithBlockhashLifetime,
-  TransactionMessageWithFeePayer,
-  TransactionMessageWithFeePayerSigner,
-} from "@solana/kit";
-import { signTransactionMessageWithSigners } from "@solana/kit";
 
 import { createTransaction } from "../core";
+import type { Address } from "@solana/addresses";
+import type { BaseTransactionMessage, Instruction, TransactionMessageWithBlockhashLifetime, TransactionMessageWithFeePayer, TransactionMessageWithFeePayerSigner } from "@solana/transaction-messages";
+import type { KeyPairSigner } from "@solana/signers";
+import { signTransactionMessageWithSigners } from "@solana/transactions";
 
 // [DESCRIBE] createTransaction
 {

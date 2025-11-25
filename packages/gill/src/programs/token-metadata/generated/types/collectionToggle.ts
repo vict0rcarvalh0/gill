@@ -6,23 +6,8 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
-  combineCodec,
-  getDiscriminatedUnionDecoder,
-  getDiscriminatedUnionEncoder,
-  getStructDecoder,
-  getStructEncoder,
-  getTupleDecoder,
-  getTupleEncoder,
-  getUnitDecoder,
-  getUnitEncoder,
-  type Codec,
-  type Decoder,
-  type Encoder,
-  type GetDiscriminatedUnionVariant,
-  type GetDiscriminatedUnionVariantContent,
-} from '@solana/kit';
-import {
+import type { import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, getUnitDecoder, getUnitEncoder } from "@solana/codecs";
+import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getStructDecoder, getStructEncoder, getTupleDecoder, getTupleEncoder } from "@solana/codecs";
   getCollectionDecoder,
   getCollectionEncoder,
   type Collection,

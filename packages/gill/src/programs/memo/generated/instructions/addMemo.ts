@@ -7,6 +7,10 @@
  */
 
 import {
+import type { Address } from "@solana/addresses";
+import type { Instruction, AccountRole, AccountMeta, InstructionWithAccounts, InstructionWithData } from "@solana/transaction-messages";
+import type { TransactionSigner } from "@solana/signers";
+import { getUtf8Decoder, getUtf8Encoder } from "@solana/codecs";
   combineCodec,
   getStructDecoder,
   getStructEncoder,
@@ -16,15 +20,7 @@ import {
   type Decoder,
   type Encoder,
 } from "@solana/codecs";
-import type {
-  Address,
-  AccountMeta,
-  Instruction,
-  InstructionWithAccounts,
-  InstructionWithData,
-  TransactionSigner,
-} from "@solana/kit";
-import { AccountRole } from "@solana/kit";
+
 import { MEMO_PROGRAM_ADDRESS } from "../programs";
 
 export type AddMemoInstruction<

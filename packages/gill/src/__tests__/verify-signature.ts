@@ -1,5 +1,7 @@
-import { generateKeyPairSigner, getBase58Decoder, KeyPairSigner, signBytes } from "@solana/kit";
+
 import { verifySignatureForAddress } from "../core/verify-signature";
+import { generateKeyPairSigner, KeyPairSigner, signBytes } from "@solana/signers";
+import { getBase58Decoder } from "@solana/codecs";
 
 describe("verifySignatureForAddress", () => {
   let testKeyPair: KeyPairSigner;

@@ -1,27 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import {
-  GetEpochInfoApi,
-  GetLatestBlockhashApi,
-  GetSignatureStatusesApi,
-  Instruction,
-  Rpc,
-  RpcDevnet,
-  RpcMainnet,
-  RpcSubscriptions,
-  RpcSubscriptionsDevnet,
-  RpcSubscriptionsMainnet,
-  RpcSubscriptionsTestnet,
-  RpcTestnet,
-  SendTransactionApi,
-  SignatureNotificationsApi,
-  signTransactionMessageWithSigners,
-  SlotNotificationsApi,
-  TransactionSigner,
-  TransactionWithBlockhashLifetime,
-  TransactionWithDurableNonceLifetime,
-} from "@solana/kit";
+
 import { createTransaction } from "../core";
 import { sendAndConfirmTransactionWithSignersFactory } from "../core/send-and-confirm-transaction-with-signers";
+import { GetLatestBlockhashApi, GetSignatureStatusesApi, SendTransactionApi, GetEpochInfoApi, RpcDevnet, RpcMainnet, RpcTestnet } from "@solana/rpc-api";
+import { Instruction } from "@solana/transaction-messages";
+import { Rpc } from "@solana/rpc";
+import { RpcSubscriptions } from "@solana/rpc-subscriptions";
+import { signTransactionMessageWithSigners, TransactionWithBlockhashLifetime, TransactionWithDurableNonceLifetime } from "@solana/transactions";
+import { TransactionSigner } from "@solana/signers";
+import { SignatureNotificationsApi, SlotNotificationsApi, RpcSubscriptionsDevnet, RpcSubscriptionsMainnet, RpcSubscriptionsTestnet } from "@solana/rpc-subscriptions-api";
 
 const rpc = null as unknown as Rpc<
   GetEpochInfoApi & GetSignatureStatusesApi & SendTransactionApi & GetLatestBlockhashApi

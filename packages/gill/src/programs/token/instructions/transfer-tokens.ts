@@ -1,9 +1,12 @@
-import type { Address, Instruction, TransactionSigner } from "@solana/kit";
+
 
 import { getCreateAssociatedTokenIdempotentInstruction, getTransferInstruction } from "@solana-program/token-2022";
 import { checkedAddress, checkedTransactionSigner } from "../../../core";
 import { checkedTokenProgramAddress } from "../addresses";
 import type { TokenInstructionBase } from "./types";
+import type { Address } from "@solana/addresses";
+import type { Instruction } from "@solana/transaction-messages";
+import type { TransactionSigner } from "@solana/signers";
 
 export type GetTransferTokensInstructionsArgs = TokenInstructionBase & {
   /**

@@ -1,5 +1,6 @@
-import { createSignerFromKeyPair, type KeyPairSigner } from "@solana/kit";
+
 import { createKeypairFromBase58 } from "../core";
+import type { KeyPairSigner, createSignerFromKeyPair } from "@solana/signers";
 
 /**
  * Load a `CryptoKeyPair` from an environment variable containing a base58 encoded keypair

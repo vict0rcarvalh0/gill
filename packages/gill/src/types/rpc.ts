@@ -1,15 +1,6 @@
-import type {
-  createSolanaRpc,
-  createSolanaRpcSubscriptions,
-  DevnetUrl,
-  MainnetUrl,
-  RpcFromTransport,
-  RpcSubscriptions,
-  RpcTransportFromClusterUrl,
-  SolanaRpcApiFromTransport,
-  SolanaRpcSubscriptionsApi,
-  TestnetUrl,
-} from "@solana/kit";
+import type { createSolanaRpc, RpcFromTransport, RpcTransportFromClusterUrl, SolanaRpcApiFromTransport } from "@solana/rpc";
+import type { createSolanaRpcSubscriptions, RpcSubscriptions, SolanaRpcSubscriptionsApi } from "@solana/rpc-subscriptions";
+import type { DevnetUrl, MainnetUrl, TestnetUrl } from "@solana/rpc-transport-http";
 
 import { SendAndConfirmTransactionWithSignersFunction } from "../core/send-and-confirm-transaction-with-signers";
 import type { SimulateTransactionFunction } from "../core/simulate-transaction";

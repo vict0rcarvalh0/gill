@@ -6,28 +6,9 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
-  combineCodec,
-  getAddressDecoder,
-  getAddressEncoder,
-  getDiscriminatedUnionDecoder,
-  getDiscriminatedUnionEncoder,
-  getOptionDecoder,
-  getOptionEncoder,
-  getStructDecoder,
-  getStructEncoder,
-  getU64Decoder,
-  getU64Encoder,
-  type Address,
-  type Codec,
-  type Decoder,
-  type Encoder,
-  type GetDiscriminatedUnionVariant,
-  type GetDiscriminatedUnionVariantContent,
-  type Option,
-  type OptionOrNullable,
-} from '@solana/kit';
-import {
+import type { import type { Codec, Decoder, Encoder, GetDiscriminatedUnionVariant, GetDiscriminatedUnionVariantContent, OptionOrNullable, Option } from "@solana/codecs";
+import { combineCodec, getDiscriminatedUnionDecoder, getDiscriminatedUnionEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU64Decoder, getU64Encoder } from "@solana/codecs";
+import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
   getAuthorizationDataDecoder,
   getAuthorizationDataEncoder,
   type AuthorizationData,

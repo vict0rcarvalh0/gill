@@ -1,15 +1,12 @@
-import type {
-  Address,
-  TransactionMessageWithFeePayer,
-  TransactionMessageWithBlockhashLifetime,
-  TransactionSigner,
-  TransactionVersion,
-} from "@solana/kit";
+
 import { checkedAddress, checkedTransactionSigner, createTransaction } from "../../../core";
 import type { FullTransaction, Simplify } from "../../../types";
 import { checkedTokenProgramAddress, getAssociatedTokenAccountAddress } from "../addresses";
 import { getTransferTokensInstructions, type GetTransferTokensInstructionsArgs } from "../instructions";
 import type { TransactionBuilderInput } from "./types";
+import type { Address } from "@solana/addresses";
+import type { TransactionMessageWithFeePayer, TransactionMessageWithBlockhashLifetime, TransactionVersion } from "@solana/transaction-messages";
+import type { TransactionSigner } from "@solana/signers";
 
 type GetTransferTokensTransactionInput = Simplify<
   Omit<GetTransferTokensInstructionsArgs, "sourceAta" | "destinationAta"> &

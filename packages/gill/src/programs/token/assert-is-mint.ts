@@ -1,11 +1,8 @@
 import type { Mint } from "@solana-program/token-2022";
-import type { Account, Address } from "@solana/kit";
-import {
-  isAddress,
-  SOLANA_ERROR__ACCOUNTS__ACCOUNT_NOT_FOUND,
-  SOLANA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT,
-  SolanaError,
-} from "@solana/kit";
+import type { Account } from "@solana/accounts";
+import type { Address } from "@solana/addresses";
+import { isAddress } from "@solana/addresses";
+import { SOLANA_ERROR__ACCOUNTS__ACCOUNT_NOT_FOUND, SolanaError, SOLANA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT } from "@solana/errors";
 
 export function assertIsMint<TAddress extends string = string>(
   accountOrAddress: Account<Mint, TAddress> | Address<TAddress>,

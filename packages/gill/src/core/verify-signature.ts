@@ -1,13 +1,8 @@
-import type {} from "@solana/kit";
-import {
-  getBase58Encoder,
-  getPublicKeyFromAddress,
-  verifySignature,
-  type Address,
-  type ReadonlyUint8Array,
-  type Signature,
-  type SignatureBytes,
-} from "@solana/kit";
+import type { ReadonlyUint8Array } from "@solana/codecs";
+import { getBase58Encoder } from "@solana/codecs";
+import type { Address, getPublicKeyFromAddress } from "@solana/addresses";
+import type { Signature, SignatureBytes } from "@solana/rpc-types";
+import { verifySignature } from "@solana/signers";
 
 /**
  * Verifies a Solana Address had signed the given message.

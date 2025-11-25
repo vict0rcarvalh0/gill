@@ -1,6 +1,7 @@
-import { Address } from "@solana/kit";
+
 import { TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
 import {
+import { Address } from "@solana/addresses";
   assertIsSupportedTokenProgram,
   checkedTokenProgramAddress,
   parseTokenProgramAddressOrMoniker,

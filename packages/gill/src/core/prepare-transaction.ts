@@ -1,17 +1,9 @@
 import { COMPUTE_BUDGET_PROGRAM_ADDRESS, getSetComputeUnitLimitInstruction } from "@solana-program/compute-budget";
-import type {
-  GetLatestBlockhashApi,
-  Rpc,
-  SimulateTransactionApi,
-  TransactionMessage,
-  TransactionMessageWithBlockhashLifetime,
-  TransactionMessageWithFeePayer,
-} from "@solana/kit";
-import {
-  appendTransactionMessageInstruction,
-  assertIsTransactionMessageWithBlockhashLifetime,
-  setTransactionMessageLifetimeUsingBlockhash,
-} from "@solana/kit";
+import type { GetLatestBlockhashApi, SimulateTransactionApi } from "@solana/rpc-api";
+import type { Rpc } from "@solana/rpc";
+import type { TransactionMessage, TransactionMessageWithBlockhashLifetime, TransactionMessageWithFeePayer, assertIsTransactionMessageWithBlockhashLifetime } from "@solana/transaction-messages";
+import { appendTransactionMessageInstruction, setTransactionMessageLifetimeUsingBlockhash } from "@solana/transaction-messages";
+
 import { isSetComputeLimitInstruction, estimateComputeUnitLimitFactory } from "../programs/compute-budget";
 import { transactionToBase64WithSigners } from "./base64-to-transaction";
 import { debug, isDebugEnabled } from "./debug";

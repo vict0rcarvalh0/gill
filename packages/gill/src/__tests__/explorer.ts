@@ -1,5 +1,6 @@
 import assert from "node:assert";
-import { getSignatureFromTransaction, ReadonlyUint8Array, SignaturesMap, TransactionMessageBytes } from "@solana/kit";
+import { getSignatureFromTransaction, SignaturesMap, TransactionMessageBytes } from "@solana/transactions";
+import { ReadonlyUint8Array } from "@solana/codecs";
 
 import { getExplorerLink } from "../core";
 

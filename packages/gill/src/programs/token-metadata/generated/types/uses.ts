@@ -7,16 +7,8 @@
  */
 
 import {
-  combineCodec,
-  getStructDecoder,
-  getStructEncoder,
-  getU64Decoder,
-  getU64Encoder,
-  type Codec,
-  type Decoder,
-  type Encoder,
-} from '@solana/kit';
-import {
+import type { Codec, Decoder, Encoder } from "@solana/codecs";
+import { combineCodec, getStructDecoder, getStructEncoder, getU64Decoder, getU64Encoder } from "@solana/codecs";
   getUseMethodDecoder,
   getUseMethodEncoder,
   type UseMethod,

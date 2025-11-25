@@ -1,14 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import type {
-  BaseTransactionMessage,
-  TransactionMessageWithFeePayer,
-  Rpc,
-  SolanaRpcApi,
-  TransactionMessageWithBlockhashLifetime,
-} from "@solana/kit";
-import { signTransactionMessageWithSigners } from "@solana/kit";
 import { prepareTransaction } from "../core";
+import type { BaseTransactionMessage, TransactionMessageWithFeePayer, TransactionMessageWithBlockhashLifetime } from "@solana/transaction-messages";
+import type { Rpc } from "@solana/rpc";
+import { signTransactionMessageWithSigners } from "@solana/transactions";
+import { SolanaRpcApi } from "@solana/rpc-api";
 
 // [DESCRIBE] prepareTransaction
 async () => {

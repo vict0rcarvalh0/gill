@@ -1,4 +1,5 @@
-import { createKeyPairFromBytes, createSignerFromKeyPair, getBase58Encoder, type KeyPairSigner } from "@solana/kit";
+import { getBase58Encoder } from "@solana/codecs";
+import type { KeyPairSigner, createKeyPairFromBytes, createSignerFromKeyPair } from "@solana/signers";
 
 /**
  * Create a `CryptoKeyPair` from as base58 encoded secret key

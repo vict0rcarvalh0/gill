@@ -1,8 +1,8 @@
 import { readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { resolve } from "node:path";
+import type { KeyPairSigner, createKeyPairFromBytes, createSignerFromKeyPair } from "@solana/signers";
 
-import { createKeyPairFromBytes, createSignerFromKeyPair, type KeyPairSigner } from "@solana/kit";
 import { DEFAULT_CLI_KEYPAIR_PATH } from "./const";
 import type { loadKeypairFromEnvironmentBase58, loadKeypairSignerFromEnvironmentBase58 } from "./load-keypair-base58";
 

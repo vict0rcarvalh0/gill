@@ -1,5 +1,8 @@
-import type { Address, Signature } from "@solana/kit";
-import { assertIsAddress, assertIsSignature, getBase58Decoder, getBase64Encoder } from "@solana/kit";
+import type { Address } from "@solana/addresses";
+import { assertIsAddress } from "@solana/addresses";
+import type { Signature } from "@solana/rpc-types";
+import { assertIsSignature } from "@solana/rpc-types";
+import { getBase58Decoder, getBase64Encoder } from "@solana/codecs";
 
 /**
  * Takes a base64 encoded string of a byte array, parses, then asserts it as an {@link Address}

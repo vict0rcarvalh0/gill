@@ -1,13 +1,13 @@
+import type { Address } from "@solana/addresses";
+import type { TransactionSigner } from "@solana/signers";
 import type {
-  Address,
-  BaseTransactionMessage,
-  Instruction,
-  TransactionMessageWithBlockhashLifetime,
-  TransactionMessageWithFeePayer,
-  TransactionMessageWithFeePayerSigner,
-  TransactionSigner,
-  TransactionVersion,
-} from "@solana/kit";
+    BaseTransactionMessage,
+    Instruction,
+    TransactionMessageWithBlockhashLifetime,
+    TransactionMessageWithFeePayer,
+    TransactionMessageWithFeePayerSigner,
+    TransactionVersion,
+} from "@solana/transaction-messages";
 
 import type { Simplify } from ".";
 

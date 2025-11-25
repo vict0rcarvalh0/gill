@@ -1,15 +1,13 @@
 import type { Mint, Token } from "@solana-program/token-2022";
 import { decodeToken, fetchMint } from "@solana-program/token-2022";
-import type {
-  Account,
-  Address,
-  Commitment,
-  GetAccountInfoApi,
-  GetTokenAccountsByOwnerApi,
-  Lamports,
-  Rpc,
-} from "@solana/kit";
-import { none, parseBase64RpcAccount, some } from "@solana/kit";
+import type { Account } from "@solana/accounts";
+import { parseBase64RpcAccount } from "@solana/accounts";
+import type { Address } from "@solana/addresses";
+import type { Commitment, Lamports } from "@solana/rpc-types";
+import type { GetAccountInfoApi, GetTokenAccountsByOwnerApi } from "@solana/rpc-api";
+import type { Rpc } from "@solana/rpc";
+import { none, some } from "@solana/codecs";
+
 import { fetchTokenAccounts, FetchTokenAccountsConfig } from "../../programs";
 
 // Mock the dependencies

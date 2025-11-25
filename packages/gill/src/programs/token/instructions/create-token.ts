@@ -1,5 +1,8 @@
 import { getCreateAccountInstruction } from "@solana-program/system";
-import type { Address, Instruction, KeyPairSigner, TransactionSigner } from "@solana/kit";
+import type { Address } from "@solana/addresses";
+import type { Instruction } from "@solana/transaction-messages";
+import type { KeyPairSigner, TransactionSigner } from "@solana/signers";
+
 import { checkedAddress, checkedTransactionSigner, getMinimumBalanceForRentExemption } from "../../../core";
 import { getCreateMetadataAccountV3Instruction, getTokenMetadataAddress } from "../../token-metadata";
 

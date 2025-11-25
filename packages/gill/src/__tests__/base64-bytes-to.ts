@@ -1,5 +1,8 @@
-import { Address, getBase58Encoder, getBase64Decoder, Signature } from "@solana/kit";
+
 import { base64BytesToAddress, base64BytesToSignature, base64BytesToString } from "../core/base64-bytes-to";
+import { Address } from "@solana/addresses";
+import { getBase58Encoder, getBase64Decoder } from "@solana/codecs";
+import { Signature } from "@solana/rpc-types";
 
 const base64Decoder = getBase64Decoder();
 const base58Decoder = getBase58Encoder();

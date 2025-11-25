@@ -1,10 +1,8 @@
-import type {
-  Address,
-  TransactionMessageWithBlockhashLifetime,
-  TransactionSigner,
-  TransactionVersion,
-} from "@solana/kit";
+
 import type { CreateTransactionInput, Simplify } from "../../../types";
+import type { Address } from "@solana/addresses";
+import type { TransactionMessageWithBlockhashLifetime, TransactionVersion } from "@solana/transaction-messages";
+import type { TransactionSigner } from "@solana/signers";
 
 export type TransactionBuilderInput<
   TVersion extends TransactionVersion = "legacy",

@@ -1,15 +1,7 @@
-import type {
-  Base64EncodedWireTransaction,
-  TransactionMessage,
-  TransactionMessageWithFeePayer,
-  Transaction,
-} from "@solana/kit";
-import {
-  compileTransaction,
-  getBase64EncodedWireTransaction,
-  partiallySignTransactionMessageWithSigners,
-  pipe,
-} from "@solana/kit";
+import type { TransactionMessage, TransactionMessageWithFeePayer } from "@solana/transaction-messages";
+import { pipe } from "@solana/transaction-messages";
+import type { Transaction, Base64EncodedWireTransaction, compileTransaction } from "@solana/transactions";
+import { getBase64EncodedWireTransaction, partiallySignTransactionMessageWithSigners } from "@solana/transactions";
 
 /**
  * Compile a transaction to a base64 string

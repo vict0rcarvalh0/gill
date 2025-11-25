@@ -1,10 +1,9 @@
 import type { Mint } from "@solana-program/token-2022";
-import type { Account, Address, Lamports } from "@solana/kit";
-import {
-  SOLANA_ERROR__ACCOUNTS__ACCOUNT_NOT_FOUND,
-  SOLANA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT,
-  SolanaError,
-} from "@solana/kit";
+import type { Account } from "@solana/accounts";
+import type { Address } from "@solana/addresses";
+import type { Lamports } from "@solana/rpc-types";
+import { SOLANA_ERROR__ACCOUNTS__ACCOUNT_NOT_FOUND, SolanaError, SOLANA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT } from "@solana/errors";
+
 import { assertIsMint } from "../../programs";
 
 describe("assertIsMint", () => {

@@ -6,37 +6,11 @@
  * @see https://github.com/codama-idl/codama
  */
 
-import {
-  assertAccountExists,
-  assertAccountsExist,
-  combineCodec,
-  decodeAccount,
-  fetchEncodedAccount,
-  fetchEncodedAccounts,
-  getAddressDecoder,
-  getAddressEncoder,
-  getBooleanDecoder,
-  getBooleanEncoder,
-  getOptionDecoder,
-  getOptionEncoder,
-  getStructDecoder,
-  getStructEncoder,
-  getU8Decoder,
-  getU8Encoder,
-  type Account,
-  type Address,
-  type Codec,
-  type Decoder,
-  type EncodedAccount,
-  type Encoder,
-  type FetchAccountConfig,
-  type FetchAccountsConfig,
-  type MaybeAccount,
-  type MaybeEncodedAccount,
-  type Option,
-  type OptionOrNullable,
-} from "@solana/kit";
-import {
+import type { import type { Account, assertAccountsExist, fetchEncodedAccounts, EncodedAccount, FetchAccountConfig, FetchAccountsConfig, MaybeAccount, MaybeEncodedAccount } from "@solana/accounts";
+import { assertAccountExists, decodeAccount, fetchEncodedAccount } from "@solana/accounts";
+import type { Codec, Decoder, Encoder, OptionOrNullable, Option } from "@solana/codecs";
+import { combineCodec, getBooleanDecoder, getBooleanEncoder, getOptionDecoder, getOptionEncoder, getStructDecoder, getStructEncoder, getU8Decoder, getU8Encoder } from "@solana/codecs";
+import type { Address, getAddressEncoder, getAddressDecoder } from "@solana/addresses";
   getCollectionDecoder,
   getCollectionDetailsDecoder,
   getCollectionDetailsEncoder,

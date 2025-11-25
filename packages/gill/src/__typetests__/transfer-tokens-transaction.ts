@@ -1,13 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import type {
-  Address,
-  BaseTransactionMessage,
-  KeyPairSigner,
-  TransactionMessageWithBlockhashLifetime,
-} from "@solana/kit";
-import { signTransactionMessageWithSigners } from "@solana/kit";
 import { buildTransferTokensTransaction } from "../programs/token";
+import type { Address } from "@solana/addresses";
+import type { BaseTransactionMessage, TransactionMessageWithBlockhashLifetime } from "@solana/transaction-messages";
+import type { KeyPairSigner } from "@solana/signers";
+import { signTransactionMessageWithSigners } from "@solana/transactions";
 
 // [DESCRIBE] buildTransferTokensTransaction
 async () => {

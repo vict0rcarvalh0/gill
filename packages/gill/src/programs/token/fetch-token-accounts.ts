@@ -1,7 +1,12 @@
 import type { Mint, Token } from "@solana-program/token-2022";
 import { decodeToken, fetchMint } from "@solana-program/token-2022";
-import type { Account, Address, GetAccountInfoApi, GetTokenAccountsByOwnerApi, Rpc } from "@solana/kit";
-import { isAddress, parseBase64RpcAccount } from "@solana/kit";
+import type { Account } from "@solana/accounts";
+import { parseBase64RpcAccount } from "@solana/accounts";
+import type { Address } from "@solana/addresses";
+import { isAddress } from "@solana/addresses";
+import type { GetAccountInfoApi, GetTokenAccountsByOwnerApi } from "@solana/rpc-api";
+import type { Rpc } from "@solana/rpc";
+
 import type { Simplify } from "../../types";
 import { assertIsMint } from "./assert-is-mint";
 

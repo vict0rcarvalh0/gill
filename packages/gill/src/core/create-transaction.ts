@@ -1,22 +1,9 @@
 import { getSetComputeUnitLimitInstruction, getSetComputeUnitPriceInstruction } from "@solana-program/compute-budget";
-import type {
-  Address,
-  TransactionMessageWithBlockhashLifetime,
-  TransactionMessageWithFeePayer,
-  TransactionMessageWithFeePayerSigner,
-  TransactionSigner,
-  TransactionVersion,
-} from "@solana/kit";
-import {
-  appendTransactionMessageInstruction,
-  appendTransactionMessageInstructions,
-  createTransactionMessage,
-  isTransactionSigner,
-  pipe,
-  setTransactionMessageFeePayer,
-  setTransactionMessageFeePayerSigner,
-  setTransactionMessageLifetimeUsingBlockhash,
-} from "@solana/kit";
+import type { Address } from "@solana/addresses";
+import type { TransactionMessageWithBlockhashLifetime, TransactionMessageWithFeePayer, TransactionMessageWithFeePayerSigner, TransactionVersion, isTransactionSigner, setTransactionMessageFeePayerSigner } from "@solana/transaction-messages";
+import { appendTransactionMessageInstruction, appendTransactionMessageInstructions, createTransactionMessage, pipe, setTransactionMessageFeePayer, setTransactionMessageLifetimeUsingBlockhash } from "@solana/transaction-messages";
+import type { TransactionSigner } from "@solana/signers";
+
 import type { Simplify } from "../types";
 import type { CreateTransactionInput, FullTransaction } from "../types/transactions";
 

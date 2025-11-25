@@ -1,5 +1,7 @@
-import { blockhash, createKeyPairFromBytes, createSignerFromKeyPair } from "@solana/kit";
+
 import {
+import { blockhash } from "@solana/rpc-types";
+import { createKeyPairFromBytes, createSignerFromKeyPair } from "@solana/signers";
   createKeypairFromBase58,
   createKeypairSignerFromBase58,
   createTransaction,

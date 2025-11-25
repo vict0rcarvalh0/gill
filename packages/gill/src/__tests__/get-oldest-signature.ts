@@ -1,5 +1,8 @@
-import { Address, isSolanaError, Signature, SOLANA_ERROR__TRANSACTION_ERROR__UNKNOWN } from "@solana/kit";
+
 import { getOldestSignatureForAddress } from "../core";
+import { Address } from "@solana/addresses";
+import { Signature } from "@solana/rpc-types";
+import { isSolanaError, SOLANA_ERROR__TRANSACTION_ERROR__UNKNOWN } from "@solana/errors";
 
 describe("getOldestSignatureForAddress", () => {
   // Sample test data

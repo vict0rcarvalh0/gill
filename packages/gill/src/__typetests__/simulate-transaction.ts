@@ -1,17 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import type {
-  FullySignedTransaction,
-  Rpc,
-  RpcDevnet,
-  RpcMainnet,
-  RpcTestnet,
-  SimulateTransactionApi,
-  Transaction,
-  TransactionMessage,
-  TransactionMessageWithFeePayer,
-} from "@solana/kit";
 import { simulateTransactionFactory } from "../core/simulate-transaction";
+import type { FullySignedTransaction, Transaction } from "@solana/transactions";
+import type { Rpc } from "@solana/rpc";
+import type { TransactionMessage, TransactionMessageWithFeePayer } from "@solana/transaction-messages";
+import { SimulateTransactionApi, RpcDevnet, RpcMainnet, RpcTestnet } from "@solana/rpc-api";
 
 const rpc = null as unknown as Rpc<SimulateTransactionApi>;
 const rpcDevnet = null as unknown as RpcDevnet<SimulateTransactionApi>;
